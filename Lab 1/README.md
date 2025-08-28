@@ -29,8 +29,11 @@ F) [Record the interaction](#part-f-record)
 \*\***Describe your setting, players, activity and goals here.**\*\*
 
 _Setting:_ Kitchen
+
 _Players:_ The person who is cooking
+
 _Activity:_ Before cooking, choose the mode you would like to cook on the left side of the box. As the cooking process progresses, the green light illuminate in sequence to indicate the current step. The lights guide the chef through the recipe, with the next step indicated by a green light. The bottles represent different condiments (can be in various containers). If a bottle is not returned after use, the yellow light flashes as a warning. Picking the wrong bottle causes the red light to flash. Each time a bottle is correctly picked up and returned, the green light flashes once. Completing all steps triggers all the lights to flash with a colorful lights. In the end, it turned off automatically.
+
 _Goals:_ Help chefs avoid missing or forgetting steps by visualizing cooking progress through interactive lights. Provide immediate feedback on actions to ensure accuracy and proper sequencing.
 
 \*\***Include pictures of your storyboards here**\*\*
