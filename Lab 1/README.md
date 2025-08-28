@@ -27,6 +27,7 @@ F) [Record the interaction](#part-f-record)
 ## Part 1A. Plan 
 
 \*\***Describe your setting, players, activity and goals here.**\*\*
+
 _Setting:_ Kitchen
 _Players:_ The person who is cooking
 _Activity:_ Before cooking, choose the mode you would like to cook on the left side of the box. As the cooking process progresses, the green light illuminate in sequence to indicate the current step. The lights guide the chef through the recipe, with the next step indicated by a green light. The bottles represent different condiments (can be in various containers). If a bottle is not returned after use, the yellow light flashes as a warning. Picking the wrong bottle causes the red light to flash. Each time a bottle is correctly picked up and returned, the green light flashes once. Completing all steps triggers all the lights to flash with a colorful lights. In the end, it turned off automatically.
@@ -38,26 +39,32 @@ _Goals:_ Help chefs avoid missing or forgetting steps by visualizing cooking pro
 
 
 \*\***Summarize feedback you got here.**\*\*
+
 We were working on the design during class time so we couldn’t ask for feedback from our peers. We only shared our idea with TA and received positive comments from him.
 
 
 ## Part 1B. Act out the Interaction
 
 \*\***Are there things that seemed better on paper than acted out?**\*\*
+
 Since Tinkerbelle doesn't have multiple lights, we imitated the flashing lights using different background colors on the phone. However, it was difficult to create a flashing effect.
 
 \*\***Are there new ideas that occur to you or your collaborator that come up from the acting?**\*\*
+
 Sound effect: Acting out the sequence made us consider adding subtle auditory signals (chimes) in addition to lights, to provide multi-sensory feedback for the chef.
 
 ## Part 1C. Prototype the device
 
 \*\***Give us feedback on Tinkerbelle.**\*\*
+
 Tinkerbelle is a really good software for one light, but it cannot make different lights in different parts of the screen (Partition display). As we do not have five phones to do this lab, we choose slides instead to display the effects.
 
 ## Part 1D. Wizard the device
+
 \*\***Include your first attempts at recording the set-up video here.**\*\*
 
 Here is the first attempt demo video!
+
 https://drive.google.com/file/d/1KwxyvKm84TkSXPgvwc1sGI5fmFVVE7L6/view?usp=sharing
 
 \*\***Show the follow-up work here.**\*\*
@@ -77,10 +84,12 @@ We initially used a mobile phone as the display device for the slides to immitat
 \*\***Take a video of your prototyped interaction.**\*\*
 
 Here is the demo video of my interaction!
+
 https://drive.google.com/file/d/1lDDAwDMCFRYFSha0AIaA3D5vYPw4H2aj/view?usp=sharing
 
 \*\***Please indicate who you collaborated with on this Lab.**\*\*
-\Wenzhuo Ma
+
+Wenzhuo Ma
 
 
 
