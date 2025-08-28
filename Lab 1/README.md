@@ -79,6 +79,9 @@ We initially used a mobile phone as the display device for the slides to immitat
 
 \*\***What concerns or opportunitities are influencing the way you've designed the device to look?**\*\*
 
+Our design prioritizes convenience and provides clear instructions, helping people know exactly what condiments to use while cooking without having to constantly check their phones. Because kitchens are prone to greasy stains, they need to be easily accessible for cleaning. A stationary device would be inconvenient to move, so it's made of washable, waterproof material, and it can be wiped with a damp towel.
+
+
 ## Part F. Record
 
 \*\***Take a video of your prototyped interaction.**\*\*
