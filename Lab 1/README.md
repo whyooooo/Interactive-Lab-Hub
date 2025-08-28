@@ -57,6 +57,8 @@ Tinkerbelle is a really good software for one light, but it cannot make differen
 ## Part 1D. Wizard the device
 \*\***Include your first attempts at recording the set-up video here.**\*\*
 
+Here is the first attempt demo video!
+https://drive.google.com/file/d/1KwxyvKm84TkSXPgvwc1sGI5fmFVVE7L6/view?usp=sharing
 
 \*\***Show the follow-up work here.**\*\*
 
@@ -78,7 +80,7 @@ Here is the demo video of my interaction!
 https://drive.google.com/file/d/1lDDAwDMCFRYFSha0AIaA3D5vYPw4H2aj/view?usp=sharing
 
 \*\***Please indicate who you collaborated with on this Lab.**\*\*
-Wenzhuo Ma
+\Wenzhuo Ma
 
 
 
