@@ -11,17 +11,17 @@
 ## Lab Overview
 For this assignment, you are going to:
 
-A) [Plan](#part-a-plan) 
+A) [Plan](#part-1a-plan) 
 
-B) [Act out the interaction](#part-b-act-out-the-interaction) 
+B) [Act out the interaction](#part-1b-act-out-the-interaction) 
 
-C) [Prototype the device](#part-c-prototype-the-device)
+C) [Prototype the device](#part-1c-prototype-the-device)
 
-D) [Wizard the device](#part-d-wizard-the-device) 
+D) [Wizard the device](#part-1d-wizard-the-device) 
 
-E) [Costume the device](#part-e-costume-the-device)
+E) [Costume the device](#part-1e-costume-the-device)
 
-F) [Record the interaction](#part-f-record)
+F) [Record the interaction](#part-1f-record)
 
 
 ## Part 1A. Plan 
@@ -74,7 +74,7 @@ https://drive.google.com/file/d/1KwxyvKm84TkSXPgvwc1sGI5fmFVVE7L6/view?usp=shari
 
 We initially used a mobile phone as the display device for the slides to immitate the lights. The slides also include virtual bottles on the phone, which moved alongside the real-world bottle. However, we found this unclear due to the small screen size of the phone, and the movement of the virtual and real bottles together would cause confusions. Therefore, we used a laptop as the display device, deleting the virtual bottles and interact directly with the real bottles. This approach was very clear and achieved all the desired effects.
 
-## Part E. Costume the device
+## Part 1E. Costume the device
 
 
 \*\***Include sketches of what your devices might look like here.**\*\*
@@ -85,7 +85,7 @@ We initially used a mobile phone as the display device for the slides to immitat
 Our design prioritizes convenience and provides clear instructions, helping people know exactly what condiments to use while cooking without having to constantly check their phones. Because kitchens are prone to greasy stains, they need to be easily accessible for cleaning. A stationary device would be inconvenient to move, so it's made of washable, waterproof material, and it can be wiped with a damp towel.
 
 
-## Part F. Record
+## Part 1F. Record
 
 \*\***Take a video of your prototyped interaction.**\*\*
 
