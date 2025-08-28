@@ -23,7 +23,6 @@ E) [Costume the device](#part-e-costume-the-device)
 
 F) [Record the interaction](#part-f-record)
 
-Labs are due on Mondays. Make sure this page is linked to on your main class hub page.
 
 ## Part 1A. Plan 
 
@@ -63,13 +62,8 @@ Tinkerbelle is a really good software for one light, but it cannot make differen
 
 We initially used a mobile phone as the display device for the slides to immitate the lights. The slides also include virtual bottles on the phone, which moved alongside the real-world bottle. However, we found this unclear due to the small screen size of the phone, and the movement of the virtual and real bottles together would cause confusions. Therefore, we used a laptop as the display device, deleting the virtual bottles and interact directly with the real bottles. This approach was very clear and achieved all the desired effects.
 
-
-
 ## Part E. Costume the device
 
-Only now should you start worrying about what the device should look like. Develop three costumes so that you can use your phone as this device.
-
-Think about the setting of the device: is the environment a place where the device could overheat? Is water a danger? Does it need to have bright colors in an emergency setting?
 
 \*\***Include sketches of what your devices might look like here.**\*\*
 ![](Costume.jpeg)
@@ -79,6 +73,9 @@ Think about the setting of the device: is the environment a place where the devi
 ## Part F. Record
 
 \*\***Take a video of your prototyped interaction.**\*\*
+
+Here is the demo video of my interaction!
+https://drive.google.com/file/d/1lDDAwDMCFRYFSha0AIaA3D5vYPw4H2aj/view?usp=sharing
 
 \*\***Please indicate who you collaborated with on this Lab.**\*\*
 Wenzhuo Ma
