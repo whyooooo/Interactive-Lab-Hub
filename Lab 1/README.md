@@ -35,7 +35,7 @@ _Goals:_ Help chefs avoid missing or forgetting steps by visualizing cooking pro
 
 \*\***Include pictures of your storyboards here**\*\*
 
-![](Storyboard.jpeg)
+![](storyboard.jpeg)
 
 
 \*\***Summarize feedback you got here.**\*\*
