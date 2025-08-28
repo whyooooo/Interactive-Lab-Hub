@@ -2,7 +2,7 @@
 
 # Staging Interaction
 
-\*\***Wenzhuo Ma**\*\*
+\*\***Collaborator: Wenzhuo Ma**\*\*
 
 
 
@@ -34,6 +34,8 @@ _Activity:_ Before cooking, choose the mode you would like to cook on the left s
 _Goals:_ Help chefs avoid missing or forgetting steps by visualizing cooking progress through interactive lights. Provide immediate feedback on actions to ensure accuracy and proper sequencing.
 
 \*\***Include pictures of your storyboards here**\*\*
+
+![](Storyboard.jpeg)
 
 
 \*\***Summarize feedback you got here.**\*\*
