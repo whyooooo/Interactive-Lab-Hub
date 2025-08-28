@@ -25,7 +25,7 @@ F) [Record the interaction](#part-f-record)
 
 Labs are due on Mondays. Make sure this page is linked to on your main class hub page.
 
-## Part A. Plan 
+## Part 1A. Plan 
 
 \*\***Describe your setting, players, activity and goals here.**\*\*
 _Setting:_ Kitchen
@@ -42,36 +42,27 @@ _Goals:_ Help chefs avoid missing or forgetting steps by visualizing cooking pro
 We were working on the design during class time so we couldn’t ask for feedback from our peers. We only shared our idea with TA and received positive comments from him.
 
 
-## Part B. Act out the Interaction
-
-Try physically acting out the interaction you planned. For now, you can just pretend the device is doing the things you’ve scripted for it. 
+## Part 1B. Act out the Interaction
 
 \*\***Are there things that seemed better on paper than acted out?**\*\*
+Since Tinkerbelle doesn't have multiple lights, we imitated the flashing lights using different background colors on the phone. However, it was difficult to create a flashing effect.
 
 \*\***Are there new ideas that occur to you or your collaborator that come up from the acting?**\*\*
+Sound effect: Acting out the sequence made us consider adding subtle auditory signals (chimes) in addition to lights, to provide multi-sensory feedback for the chef.
 
-
-## Part C. Prototype the device
-
-You will be using your smartphone as a stand-in for the device you are prototyping. You will use the browser of your smart phone to act as a “light” and use a remote control interface to remotely change the light on that device. 
-
-Code for the "Tinkerbelle" tool, and instructions for setting up the server and your phone are [here](https://github.com/IRL-CT/tinkerbelle).
-
-We invented this tool for this lab! 
-
-If you run into technical issues with this tool, you can also use a light switch, dimmer, etc. that you can can manually or remotely control.
+## Part 1C. Prototype the device
 
 \*\***Give us feedback on Tinkerbelle.**\*\*
+Tinkerbelle is a really good software for one light, but it cannot make different lights in different parts of the screen (Partition display). As we do not have five phones to do this lab, we choose slides instead to display the effects.
 
-
-## Part D. Wizard the device
-Take a little time to set up the wizarding set-up that allows for someone to remotely control the device while someone acts with it. Hint: You can use Zoom to record videos, and you can pin someone’s video feed if that is the scene which you want to record. 
-
+## Part 1D. Wizard the device
 \*\***Include your first attempts at recording the set-up video here.**\*\*
 
-Now, change the goal within the same setting, and update the interaction with the paper prototype. 
 
 \*\***Show the follow-up work here.**\*\*
+
+We initially used a mobile phone as the display device for the slides to immitate the lights. The slides also include virtual bottles on the phone, which moved alongside the real-world bottle. However, we found this unclear due to the small screen size of the phone, and the movement of the virtual and real bottles together would cause confusions. Therefore, we used a laptop as the display device, deleting the virtual bottles and interact directly with the real bottles. This approach was very clear and achieved all the desired effects.
+
 
 
 ## Part E. Costume the device
@@ -90,7 +81,7 @@ Think about the setting of the device: is the environment a place where the devi
 \*\***Take a video of your prototyped interaction.**\*\*
 
 \*\***Please indicate who you collaborated with on this Lab.**\*\*
-Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
+Wenzhuo Ma
 
 
 
