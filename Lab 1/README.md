@@ -46,7 +46,7 @@ _Goals:_ Help chefs avoid missing or forgetting steps by visualizing cooking pro
 We shared our idea with TA and received positive comments from him.
 
 Also we got some feedback from classmates:
-"As a beginner in the kitchen, I often find myself scrambling because I can’t remember the order to add seasonings. Sometimes I even finish cooking a dish only to realize I forgot the sugar or salt. Following recipes from a book never really works for me. This visual lighting system feels like it could really save struggling new cooks like myself — allowing us to focus more on heat control and how the ingredients are actually cooking."  ———— **Dean Xu**
+"As a beginner in the kitchen, I often find myself scrambling because I can’t remember the order to add seasonings. Sometimes I even finish cooking a dish only to realize I forgot the sugar or salt. Following recipes from a book never really works for me. This visual lighting system feels like it could really save struggling new cooks like myself — allowing us to focus more on heat control and how the ingredients are actually cooking."  — **Dean Xu**
 
 ## Part 1B. Act out the Interaction
 
