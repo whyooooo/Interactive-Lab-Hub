@@ -114,8 +114,6 @@ Our system has received widespread acclaim from our colleagues, especially those
 
 \*\***Document everything here. (Particularly, we would like to see the storyboard and video, although photos of the prototype are also great.)**\*\*
 
-## Lab Overview
-For this assignment, you are going to:
 
 A) [Plan](#part-2a-plan) 
 
@@ -142,6 +140,11 @@ _Goals:_ Help chefs avoid missing or forgetting steps by visualizing cooking pro
 
 ![](storyboard2.jpeg)
 
+\*\***Summarize feedback you got here.**\*\*
+
+This version is a clear improvement over the last one—now with lights, sound, and digital displays, I know exactly how much seasoning to add. It feels more intuitive and removes the uncertainty from before. --Dean Xu
+
+This version is definitely an improvement, especially with the digital display showing how much to add. But there’s still an issue—it tells me the amount, yet I’m not always sure when to add it, and sometimes seasonings aren’t added all at once but later in the process. --Richard Li
 
 ## Part 2B. Act out the Interaction
 
@@ -158,10 +161,12 @@ It would be better to have a measurement on the quantity we used for the condime
 
 
 \*\***Include sketches of what your devices might look like here.**\*\*
+
 ![](costume2.jpeg)
 
 \*\***What concerns or opportunitities are influencing the way you've designed the device to look?**\*\*
-The spice boxes are sustainable and connected to each other with magnets, so they can be removed and added.
+
+The new design features changeable condiment containers that are connected with magnets, allowing them to be easily added or removed. This makes the design more sustainable.
 
 ## Part 2D. Record
 
@@ -170,11 +175,8 @@ The spice boxes are sustainable and connected to each other with magnets, so the
 
 Here is the new demo video with the improved prototype!
 
+
 https://drive.google.com/file/d/1aso9p4zn8DSsxiVJ8srne_fkNjhhoKXU/view?usp=sharing
 
 
-
-\*\***Please indicate who you collaborated with on this Lab.**\*\*
-
-Wenzhuo Ma
 
