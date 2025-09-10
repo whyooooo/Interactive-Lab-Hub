@@ -1,8 +1,6 @@
 # Interactive Prototyping: The Clock of Pi
-**NAMES OF COLLABORATORS HERE**
 
 ## Prep
-
 
 1. ### Set up your Lab 2 Github
 
@@ -15,10 +13,7 @@
 [Follow these instructions](prep.md) to download and burn the image for your Raspberry Pi before lab Thursday.
 
 
-
-
 ## Overview
-For this assignment, you are going to 
 
 A) [Connect to your Pi](#part-a)  
 
@@ -35,9 +30,6 @@ F) [Make a short video of your modified barebones PiClock](#part-f)
 G) [Sketch and brainstorm further interactions and features you would like for your clock for Part 2.](#part-g)
 
 ## The Report
-This readme.md page in your own repository should be edited to include the work you have done. You can delete everything but the headers and the sections between the \*\*\***stars**\*\*\*. Write the answers to the questions under the starred sentences. Include any material that explains what you did in this lab hub folder, and link it in the readme.
-
-Labs are due on Mondays. Make sure this page is linked to on your main class hub page.
 
 ## Part A. 
 ### Connect to your Pi
