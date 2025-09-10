@@ -33,107 +33,32 @@ G) [Sketch and brainstorm further interactions and features you would like for y
 
 ## Part A. 
 ### Connect to your Pi
-Just like you did in the lab prep, ssh on to your pi. Once you get there, create a Python environment (named venv) by typing the following commands.
-
 ```
 ssh pi@<your Pi's IP address>
-...
 pi@raspberrypi:~ $ python -m venv venv
 pi@raspberrypi:~ $ source venv/bin/activate
 (venv) pi@raspberrypi:~ $ 
-
 ```
-### Setup Personal Access Tokens on GitHub
-Set your git name and email so that commits appear under your name.
-```
-git config --global user.name "Your Name"
-git config --global user.email "yourNetID@cornell.edu"
-```
-
-The support for password authentication of GitHub was removed on August 13, 2021. That is, in order to link and sync your own lab-hub repo with your Pi, you will have to set up a "Personal Access Tokens" to act as the password for your GitHub account on your Pi when using git command, such as `git clone` and `git push`.
-
-Following the steps listed [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) from GitHub to set up a token. Depends on your preference, you can set up and select the scopes, or permissions, you would like to grant the token. This token will act as your GitHub password later when you use the terminal on your Pi to sync files with your lab-hub repo.
-
-
 ## Part B. 
 ### Try out the Command Line Clock
-Clone your own lab-hub repo for this assignment to your Pi and change the directory to Lab 2 folder (remember to replace the following command line with your own GitHub ID):
-
 ```
 (venv) pi@raspberrypi:~$ git clone https://github.com/<YOURGITID>/Interactive-Lab-Hub.git
 (venv) pi@raspberrypi:~$ cd Interactive-Lab-Hub/Lab\ 2/
 ```
-Depends on the setting, you might be asked to provide your GitHub user name and password. Remember to use the "Personal Access Tokens" you just set up as the password instead of your account one!
-
-Check if the directory has clone sucessfully, you should see the Interactive-Lab-Hub under the home directory listed:
-```
-(venv) pi@raspberrypi:~ $ ls
-Bookshelf      Documents            Music     Public                 venv
-create_img.sh  Downloads            pi-apps   screen_boot_script.py  Videos
-Desktop        Interactive-Lab-Hub  Pictures  Templates
-(venv) pi@raspberrypi:~ $
-```
-
-
-Install the packages from the requirements.txt and run the example script `cli_clock.py`:
-
-```
-(venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ pip install -r requirements.txt
-(venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ python cli_clock.py 
-02/24/2021 11:20:49
-```
-
-The terminal should show the time, you can press `ctrl-c` to exit the script.
-If you are unfamiliar with the Python code in `cli_clock.py`, have a look at [this Python refresher](https://hackernoon.com/intermediate-python-refresher-tutorial-project-ideas-and-tips-i28s320p). If you are still concerned, please reach out to the teaching staff!
-
 
 ## Part C. 
 ### Set up your RGB Display
-We have asked you to equip the [Adafruit MiniPiTFT](https://www.adafruit.com/product/4393) on your Pi in the Lab 2 prep already. Here, we will introduce you to the MiniPiTFT and Python scripts on the Pi with more details.
-
-<img src="https://cdn-learn.adafruit.com/assets/assets/000/082/842/large1024/adafruit_products_4393_iso_ORIG_2019_10.jpg" height="200" />
-
-The Raspberry Pi 4 has a variety of interfacing options. When you plug the pi in the red power LED turns on. Any time the SD card is accessed the green LED flashes. It has standard USB ports and HDMI ports. Less familiar it has a set of 20x2 pin headers that allow you to connect a various peripherals.
-
-<img src="https://maker.pro/storage/g9KLAxU/g9KLAxUiJb9e4Zp1xcxrMhbCDyc3QWPdSunYAoew.png" height="400" />
-
-To learn more about any individual pin and what it is for go to [pinout.xyz](https://pinout.xyz/pinout/3v3_power) and click on the pin. Some terms may be unfamiliar but we will go over the relevant ones as they come up.
-
-### Hardware (you have already done this in the prep)
-
-From your kit take out the display and the [Raspberry Pi 5](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.raspberrypi.com%2Fproducts%2Fraspberry-pi-5%2F&psig=AOvVaw330s4wIQWfHou2Vk3-0jUN&ust=1757611779758000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCPi1-5_czo8DFQAAAAAdAAAAABAE)
-
-Line up the screen and press it on the headers. The hole in the screen should match up with the hole on the raspberry pi.
-
-<p float="left">
-<img src="https://cdn-learn.adafruit.com/assets/assets/000/087/539/medium640/adafruit_products_4393_quarter_ORIG_2019_10.jpg?1579991932" height="200" />
-<img src="https://cdn-learn.adafruit.com/assets/assets/000/082/861/original/adafruit_products_image.png" height="200">
-</p>
-
+### Hardware
 ### Testing your Screen
-
-The display uses a communication protocol called [SPI](https://www.circuitbasics.com/basics-of-the-spi-communication-protocol/) to speak with the raspberry pi. We won't go in depth in this course over how SPI works. The port on the bottom of the display connects to the SDA and SCL pins used for the I2C communication protocol which we will cover later. GPIO (General Purpose Input/Output) pins 23 and 24 are connected to the two buttons on the left. GPIO 22 controls the display backlight.
-
-To show you the IP and Mac address of the Pi to allow connecting remotely we created a service that launches a python script that runs on boot. For the following steps stop the service by typing ``` sudo systemctl stop piscreen.service --now```. Othwerise two scripts will try to use the screen at once. You may start it again by typing ``` sudo systemctl start piscreen.service --now```
-
-We can test it by typing 
+For the following steps stop the service by typing ``` sudo systemctl stop piscreen.service --now```. Othwerise two scripts will try to use the screen at once. You may start it again by typing ``` sudo systemctl start piscreen.service --now```
 ```
 (venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ python screen_test.py
-```
-
-You can type the name of a color then press either of the buttons on the MiniPiTFT to see what happens on the display! You can press `ctrl-c` to exit the script. Take a look at the code with
-```
 (venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ cat screen_test.py
 ```
-
 #### Displaying Info with Texts
-You can look in `screen_boot_script.py` for how to display text on the screen!
-
+`screen_boot_script.py`
 #### Displaying an image
-
-You can look in `image.py` for an example of how to display an image on the screen. Can you make it switch to another image when you push one of the buttons?
-
-
+`image.py`
 
 ## Part D. 
 ### Set up the Display Clock Demo
