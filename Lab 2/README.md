@@ -66,6 +66,8 @@ You can use the code in `cli_clock.py` and `stats.py` to figure this out.
 ```
 (venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ nano screen_clock.py
 ```
+![](clock.jpeg)
+
 ## Part E. Now moved to Lab2 Part 2.
 
 ## Part F. Now moved to Lab2 Part 2.
