@@ -47,8 +47,6 @@ pi@raspberrypi:~ $ source venv/bin/activate
 ```
 
 ## Part C. 
-### Set up your RGB Display
-### Hardware
 ### Testing your Screen
 For the following steps stop the service by typing ``` sudo systemctl stop piscreen.service --now```. Othwerise two scripts will try to use the screen at once. You may start it again by typing ``` sudo systemctl start piscreen.service --now```
 ```
