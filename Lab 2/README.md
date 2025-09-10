@@ -1,31 +1,14 @@
 # Interactive Prototyping: The Clock of Pi
 **NAMES OF COLLABORATORS HERE**
 
-Does it feel like time is moving strangely during this semester?
-
-For our first Pi project, we will pay homage to the [timekeeping devices of old](https://en.wikipedia.org/wiki/History_of_timekeeping_devices) by making simple clocks.
-
-It is worth spending a little time thinking about how you mark time, and what would be useful in a clock of your own design.
-
-**Please indicate anyone you collaborated with on this Lab here.**
-Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
-
 ## Prep
 
-Lab Prep is extra long this week. Make sure to start this early for lab on Thursday.
 
 1. ### Set up your Lab 2 Github
 
-Before the start of lab Thursday, ensure you have the latest lab content by updating your forked repository. 
-
 **📖 [Follow the step-by-step guide for safely updating your fork](pull_updates/README.md)**
 
-This guide covers how to pull updates without overwriting your completed work, handle merge conflicts, and recover if something goes wrong.
-
-
 2. ### Get Kit and Inventory Parts
-Prior to the lab session on Thursday, taken inventory of the kit parts that you have, and note anything that is missing:
-
 ***Update your [parts list inventory](partslist.md)***
 
 3. ### Prepare your Pi for lab this week
