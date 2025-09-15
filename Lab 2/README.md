@@ -75,6 +75,7 @@ You can use the code in `cli_clock.py` and `stats.py` to figure this out.
 ## Part G. 
 ## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.
 
+![](sketch.jpeg)
 
 # Prep for Part 2
 
