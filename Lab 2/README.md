@@ -87,7 +87,7 @@ You can use the code in `cli_clock.py` and `stats.py` to figure this out.
 ## Assignment that was formerly Lab 2 Part E.
 ### Modify the barebones clock to make it your own
 
-
+![](sketch1.jpeg)
 
 ## Assignment that was formerly Part F. 
 ## Make a short video of your modified barebones PiClock
