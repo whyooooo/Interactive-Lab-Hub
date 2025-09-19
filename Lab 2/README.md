@@ -1,5 +1,5 @@
 # Interactive Prototyping: The Clock of Pi
-###Collaborator: Wenzhuo Ma###
+###Collaborator: Wenzhuo Ma (wm356)###
 
 ## Prep
 
