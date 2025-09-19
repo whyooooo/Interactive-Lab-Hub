@@ -94,6 +94,9 @@ You can use the code in `cli_clock.py` and `stats.py` to figure this out.
 
 \*\*\***Take a video of your PiClock.**\*\*\*
 
+Here is link for demo video!
+https://drive.google.com/file/d/1h8w1IxbkN6enTaRetyRPpmhJQpZIdxar/view?usp=sharing
+
 After you edit and work on the scripts for Lab 2, the files should be upload back to your own GitHub repo! You can push to your personal github repo by adding the files here, commiting and pushing.
 
 ```
