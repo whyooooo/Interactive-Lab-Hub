@@ -91,13 +91,12 @@ You can use the code in `cli_clock.py` and `stats.py` to figure this out.
 # Lab 2 Part 2
 
 ## Assignment that was formerly Lab 2 Part E.
-### Modify the barebones clock to make it your own
 
 ![Verplank diagram](Diagram.png)
 
 
 ## Assignment that was formerly Part F. 
-## Make a short video of your modified barebones PiClock
+[https://github.com/username/repo/blob/main/path/to/Clock.py#L15](https://github.com/whyooooo/Interactive-Lab-Hub/blob/Fall2025/Lab%202/Clock_update.py)
 
 Video demo for Mood-Clock:
 https://drive.google.com/file/d/1t8lyXKFmJtMIb6hGLuXT6Yq2rZ1A9PkL/view?usp=sharing
