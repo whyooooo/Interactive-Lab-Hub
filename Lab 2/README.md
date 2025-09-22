@@ -79,7 +79,13 @@ You can use the code in `cli_clock.py` and `stats.py` to figure this out.
 
 # Prep for Part 2
 
-## Feedback
+**Comments from Peers**:
+
+"Your design demonstrates a fresh and creative approach, showing that you were able to expand ideas thoughtfully and explore the design space with originality. The technical execution is solid and well-developed, with the demonstration clearly illustrating the concept’s functionality and value. In addition, your documentation is very clear and well-structured, making the process and outcomes easy to follow and understand. The only area for further improvement is the user testing, where adding more detailed feedback and your own reflections would make the overall work even stronger and more convincing."          
+———Sirui Wang
+
+"I recently came across a psychology idea that struck me: instead of the common belief that emotions shape our state, it’s actually the other way around—our state comes first, and emotions follow. The challenge is that when we look back on our recent states, it’s often hard to recall the details, which makes it difficult to understand what caused the fluctuations or how to adjust. With this mood clock, I can build the habit of recording my emotional state in the moment. That way, it becomes much easier to diagnose and fine-tune my state whenever I need to."     
+———Dean Xu
 
 
 # Lab 2 Part 2
@@ -87,33 +93,12 @@ You can use the code in `cli_clock.py` and `stats.py` to figure this out.
 ## Assignment that was formerly Lab 2 Part E.
 ### Modify the barebones clock to make it your own
 
-![](sketch1.jpeg)
+![Verplank diagram](Diagram.png)
+
 
 ## Assignment that was formerly Part F. 
 ## Make a short video of your modified barebones PiClock
 
-\*\*\***Take a video of your PiClock.**\*\*\*
-
-Here is link for demo video!
-https://drive.google.com/file/d/1h8w1IxbkN6enTaRetyRPpmhJQpZIdxar/view?usp=sharing
-
-After you edit and work on the scripts for Lab 2, the files should be upload back to your own GitHub repo! You can push to your personal github repo by adding the files here, commiting and pushing.
-
-```
-(venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ git add .
-(venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ git commit -m 'your commit message here'
-(venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ git push
-```
-
-After that, Git will ask you to login to your GitHub account to push the updates online, you will be asked to provide your GitHub user name and password. Remember to use the "Personal Access Tokens" you set up in Part A as the password instead of your account one! Go on your GitHub repo with your laptop, you should be able to see the updated files from your Pi!
-
-
-[Update your Lab Hub](pull_updates/README.md) to get the latest content and requirements for Part 2.
-
-Modify the code from last week's lab to make a new visual interface for your new clock. You may [extend the Pi](Extending%20the%20Pi.md) by adding sensors or buttons, but this is not required.
-
-As always, make sure you document contributions and ideas from others explicitly in your writeup.
-
-You are permitted (but not required) to work in groups and share a turn in; you are expected to make equal contribution on any group work you do, and N people's group project should look like N times the work of a single person's lab. What each person did should be explicitly documented. Make sure the page for the group turn in is linked to your Interactive Lab Hub page. 
-
+Video demo for Mood-Clock:
+https://drive.google.com/file/d/1t8lyXKFmJtMIb6hGLuXT6Yq2rZ1A9PkL/view?usp=sharing
 
