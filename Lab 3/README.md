@@ -1,5 +1,5 @@
 # Chatterboxes
-##Collaborator: Wenzhuo Ma (wm356)##
+###Collaborator: Wenzhuo Ma (wm356)###
 
 [![Watch the video](https://user-images.githubusercontent.com/1128669/135009222-111fe522-e6ba-46ad-b6dc-d1633d21129c.png)](https://www.youtube.com/embed/Q8FWzLMobx0?start=19)
 
@@ -307,6 +307,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
