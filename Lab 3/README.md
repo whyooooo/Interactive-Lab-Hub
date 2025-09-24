@@ -87,7 +87,7 @@ answer = ask_ai("How should I greet users?")
 
 ### Verplank Diagram
 
-![](diagram.jpg)
+![](Diagram.jpg)
 
 \*\***Please describe and document your process.**\*\*
 
@@ -159,6 +159,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
