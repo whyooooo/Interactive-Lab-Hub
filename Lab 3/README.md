@@ -4,8 +4,9 @@
 ## Part 1.
 ### Setup 
 ### Text to Speech 
-
 \*\***Write your own shell file to use your favorite of these TTS engines to have your Pi greet you by name.**\*\*
+
+Please find my shell file [here](https://github.com/username/repo/blob/main/scripts/myscript.sh).
 
 
   
@@ -213,6 +214,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
