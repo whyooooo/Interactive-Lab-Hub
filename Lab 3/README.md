@@ -2,25 +2,54 @@
 ###Collaborator: Wenzhuo Ma (wm356)###
 
 ## Part 1.
-### Setup 
 ### Text to Speech 
 \*\***Write your own shell file to use your favorite of these TTS engines to have your Pi greet you by name.**\*\*
 
 Please find my shell file [here](https://github.com/whyooooo/Interactive-Lab-Hub/blob/Fall2025/Lab%203/greet_by_name.sh).
 
 ### Speech to Text
+
 \*\***Write your own shell file that verbally asks for a numerical based input (such as a phone number, zipcode, number of pets, etc) and records the answer the respondent provides.**\*\*
 
 Please find my shell file [here]().
 
+Test commands by running:
+```bash
+./ask_number.sh
+```
+
+The script will:
+1. Ask "Please tell me your number" using text-to-speech
+2. Record 5 seconds of audio input
+3. Process the speech using Vosk offline recognition
+4. Save the result to `recorded_number.txt`
+5. Play back the recognized number using text-to-speech
 
 ### 🤖 NEW: AI-Powered Conversations with Ollama
 
-#### Ready-to-Use Scripts
-
-#### Integration in Your Projects
-
 \*\***Try creating a simple voice interaction that combines speech recognition, Ollama processing, and text-to-speech output. Document what you built and how users responded to it.**\*\*
+
+Please find my voice AI assistant script [here]().
+
+Test commands by running:
+```bash
+python3 voice_ai_assistant.py
+```
+
+The script combines:
+1. **Real-time speech recognition** using Vosk 
+2. **AI processing** using Ollama API  
+3. **Text-to-speech output** using Festival
+
+Features:
+- Real-time voice input with live transcription feedback
+- AI-powered responses using Ollama phi3:mini model
+- Voice output using Festival TTS
+- Conversation logging to `conversation_log.txt`
+- Say "exit" to quit the conversation
+
+**User Response Documentation:**
+The voice AI assistant provides a natural conversational experience. All interactions are logged to [conversation_log.txt](conversation_log.txt) with timestamps for easy review and analysis.
 
 ### Storyboard
 
@@ -41,6 +70,14 @@ Here is the link to the video: https://drive.google.com/file/d/1kZfaJgTYqRgGHBQi
 \*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
 
 When acted out, the dialogue felt more natural and conversational than simple exchanges between questions and answers. The pauses, confirmations, and follow-up questions made it more engaging and showed how helpful our design is during cooking.
+
+\*\***Feedback**\*\*
+
+"Having a "teacher" I can consult at any time while cooking is a great solution for my pain points. I usually need to watch the tutorial or recipe several times before cooking, but there are still details I forget or need to confirm during the cooking process. However, during these times, I'm often busy controlling the heat, and my hands are always greasy and dirty, making them unsuitable for using a phone. Having a voice assistant that allows me to free my hands is great."
+——Dean Xu
+
+"You guys did a good job! The dialogue is just the same as how I expected which I will have with the intelligent machine. The scenario is good enough to use the AI coach chef. I really like it! And the acting is nice as well!"
+——Richard Li
 
 ### Wizarding with the Pi (optional)
 \*\***Describe if the dialogue seemed different than what you imagined, or when acted out, when it was wizarded, and how.**\*\*
@@ -100,6 +137,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
