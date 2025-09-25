@@ -32,7 +32,7 @@ Please find my shell file [here]().
 
 \*\***Please describe and document your process.**\*\*
 
-When acted out, the dialogue felt more natural and conversational than . The pauses, confirmations, and follow-up questions made it more engaging, and it highlighted how pacing and reassurance are important for guiding someone not confident in cooking.
+Our Recipe Coach is a voice based cooking assistant designed to make the kitchen experience easier and more convenient. It guides users step by step through recipes, offering clear instructions. Beyond these, it provides flexible support such as setting timers, suggesting ingredient substitutions, clarifying cooking terms, and giving reminders when needed. This hands-free interaction is especially helpful for beginner chefs who may feel overwhelmed in the kitchen, allowing them to focus on cooking without worrying about missing a step. The Recipe Coach adapts to the user’s needs, making home cooking both accessible and enjoyable.
 
 ### Acting out the dialogue
 
@@ -100,6 +100,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
