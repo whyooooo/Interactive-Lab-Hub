@@ -93,12 +93,17 @@ For Part 2, you will redesign the interaction with the speech-enabled device usi
 Updates:
 
 1. Wording / Language
+
 Simplify instructions: Break complex steps into shorter, easy-to-follow phrases.
+
 Instead of: "Whisk the eggs into the mixture slowly while monitoring consistency."
+
 Use: "Slowly add the eggs. Stir until smooth."
 
-3. Interaction: Tap
+2. Interaction: Tap
+
 Purpose: Confirm step completion.
+
 Example: After completing a step, the user taps “Done” or says “Next” to proceed.
 
 ## Prototype your system
@@ -133,6 +138,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
