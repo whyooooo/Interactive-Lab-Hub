@@ -90,9 +90,16 @@ For Part 2, you will redesign the interaction with the speech-enabled device usi
 
 ## Prep for Part 2
 
-1. What are concrete things that could use improvement in the design of your device? For example: wording, timing, anticipation of misunderstandings...
-2. What are other modes of interaction _beyond speech_ that you might also use to clarify how to interact?
-3. Make a new storyboard, diagram and/or script based on these reflections.
+Updates:
+
+1. Wording / Language
+Simplify instructions: Break complex steps into shorter, easy-to-follow phrases.
+Instead of: "Whisk the eggs into the mixture slowly while monitoring consistency."
+Use: "Slowly add the eggs. Stir until smooth."
+
+3. Interaction: Tap
+Purpose: Confirm step completion.
+Example: After completing a step, the user taps “Done” or says “Next” to proceed.
 
 ## Prototype your system
 
@@ -105,17 +112,6 @@ The system should:
 
 *Include videos or screencaptures of both the system and the controller.*
 
-<details>
-  <summary><strong>Submission Cleanup Reminder (Click to Expand)</strong></summary>
-  
-  **Before submitting your README.md:**
-  - This readme.md file has a lot of extra text for guidance.
-  - Remove all instructional text and example prompts from this file.
-  - You may either delete these sections or use the toggle/hide feature in VS Code to collapse them for a cleaner look.
-  - Your final submission should be neat, focused on your own work, and easy to read for grading.
-  
-  This helps ensure your README.md is clear professional and uniquely yours!
-</details>
 
 ## Test the system
 Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.)
@@ -137,6 +133,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
