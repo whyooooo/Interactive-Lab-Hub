@@ -87,25 +87,25 @@ Our device simply rely on audio instructions, so using wizarding techniques isn'
 # Lab 3 Part 2
 ## Prep for Part 2
 
-Improvements:
+##Improvements:##
 
 a. Wording / Language
 
-Keep instructions short and direct
+- Keep instructions short and direct
 
-Instead of: “Carefully prepare the dry ingredients by measuring them with precision before mixing.”
+- Instead of: “Carefully prepare the dry ingredients by measuring them with precision before mixing.”
 
-Use: “Measure flour, sugar, and salt. Put them in one bowl.”
+- Use: “Measure flour, sugar, and salt. Put them in one bowl.”
 
 b. Button / Tap Interaction
 
-Confirm recipe steps at the beginning
+- Confirm recipe steps at the beginning
 
-Users select and confirm the recipe before starting. This reduces confusion later in the process.
+- Users select and confirm the recipe before starting. This reduces confusion later in the process.
 
-Skip step (only via button, not speech)
+- Skip step (only via button, not speech)
 
-Prevents accidental skips from misheard voice commands.
+- Prevents accidental skips from misheard voice commands.
 
 ![](storyboard2.jpg)
 
@@ -141,6 +141,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
