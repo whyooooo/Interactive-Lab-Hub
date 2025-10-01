@@ -87,7 +87,7 @@ Our device simply rely on audio instructions, so using wizarding techniques isn'
 # Lab 3 Part 2
 ## Prep for Part 2
 
-##Improvements:##
+Improvements:
 
 a. Wording / Language
 
@@ -141,6 +141,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
