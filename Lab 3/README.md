@@ -85,26 +85,29 @@ When acted out, the dialogue felt more natural and conversational than simple ex
 Our device simply rely on audio instructions, so using wizarding techniques isn't strictly necessary for our design.
 
 # Lab 3 Part 2
-
-For Part 2, you will redesign the interaction with the speech-enabled device using the data collected, as well as feedback from part 1.
-
 ## Prep for Part 2
 
-Updates:
+Improvements:
 
-1. Wording / Language
+a. Wording / Language
 
-Simplify instructions: Break complex steps into shorter, easy-to-follow phrases.
+Keep instructions short and direct
 
-Instead of: "Whisk the eggs into the mixture slowly while monitoring consistency."
+Instead of: “Carefully prepare the dry ingredients by measuring them with precision before mixing.”
 
-Use: "Slowly add the eggs. Stir until smooth."
+Use: “Measure flour, sugar, and salt. Put them in one bowl.”
 
-2. Interaction: Tap
+b. Button / Tap Interaction
 
-Purpose: Confirm step completion.
+Confirm recipe steps at the beginning
 
-Example: After completing a step, the user taps “Done” or says “Next” to proceed.
+Users select and confirm the recipe before starting. This reduces confusion later in the process.
+
+Skip step (only via button, not speech)
+
+Prevents accidental skips from misheard voice commands.
+
+![](storyboard2.jpg)
 
 ## Prototype your system
 
@@ -138,6 +141,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
