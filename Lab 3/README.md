@@ -206,19 +206,3 @@ From the Wizard of Oz interactions, we learned that natural conversation and con
 
 The system could easily be adapted to log multimodal interaction data for further improvement. Each cooking session can be recorded in a structured dataset containing: 1. Speech transcripts 2. Timestamps for each exchange 3. Button press events 4. Recipe progress states 5. Error logs. These logs could form a valuable dataset for training better conversational and timing models and used specifically to kitchen environments.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
