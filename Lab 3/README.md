@@ -85,17 +85,20 @@ When acted out, the dialogue felt more natural and conversational than simple ex
 Our device simply rely on audio instructions, so using wizarding techniques isn't strictly necessary for our design.
 
 # Lab 3 Part 2
+
 ## Prep for Part 2
 
 Improvements:
 
 a. Wording / Language
 
-- Keep instructions short and direct
+- Keep instructions short, direct, and quantitatively precise
 
 - Instead of: “Carefully prepare the dry ingredients by measuring them with precision before mixing.”
 
-- Use: “Measure flour, sugar, and salt. Put them in one bowl.”
+- Use: “Measure 200 g all-purpose flour, 50 g sugar, and 2 g salt. Mix them in a large stainless-steel bowl for 30 seconds until evenly combined.”
+  
+- Focus on converting vague instructions into specific, measurable actions: include exact quantities (grams, milliliters), temperature targets (°C/°F), tools or equipment (e.g., whisk, mixer, pan type), and observable conditions (e.g., “until golden brown,” “until dough forms a smooth ball”).
 
 b. Button / Tap Interaction
 
@@ -111,20 +114,80 @@ b. Button / Tap Interaction
 
 ## Prototype your system
 
-The system should:
-* use the Raspberry Pi 
-* use one or more sensors
-* require participants to speak to it. 
+# [Interactive Cooking Assistant](./cooking_assistant.py) (Raspberry Pi + Vosk + tinyllama/Ollama)
 
-*Document how the system works*
+## [cooking_assistant.py](./cooking_assistant.py)
 
-*Include videos or screencaptures of both the system and the controller.*
+## What it is
+A voice-first cooking guide that runs on Raspberry Pi. It uses:
+
+- **Sensors:** your mic (audio input sensor) + optional **GPIO button** on **GPIO23** as a physical controller.  
+- **Speech:** listens with **Vosk**, speaks with **espeak**, reasons with **tinyllama** via **local Ollama** (no cloud).
+
+---
+## Quick Start
+```
+# 1) System deps
+sudo apt update
+sudo apt install -y python3-pip espeak
+
+# 2) Python deps
+pip3 install vosk sounddevice requests adafruit-blinka
+
+# 3) (Optional) DigitalIO support for the button
+pip3 install adafruit-circuitpython-digitalio
+
+# 4) Ollama (local LLM runtime) + tinyllama
+curl -fsSL https://ollama.com/install.sh | sh
+ollama pull tinyllama
+ollama serve  # keep running in a terminal
+
+# 5) Verify Ollama is up (should list `tinyllama`)
+curl http://localhost:11434/api/tags
+
+# 6) Run the assistant (in a new terminal)
+python3 cooking_assistant.py
+
+```
+
+## How to Use
+
+### 1) Tell it your ingredients + goal
+- Say one sentence, e.g., “I have chicken, onions, garlic; I want something quick.”
+- If it didn’t catch you, speak clearly near the mic and try again.
+
+### 2) Pick a dish from suggestions
+- It will read **3–4 dish names**: say **the name** or **a number** (e.g., “two” or “the second one”).
+- If it misheard, restate the dish name.
+
+### 3) Confirm to start
+- Say **“yes”**, **“ok”**, or **“ready.”**  
+- It will switch to **step-by-step** mode.
+
+### 4) Advance steps (controller)
+- **With button (GPIO23):** press and release to go to the **next step**.
+- After each step is spoken, you can either **ask a question** or **press again** to continue.
+
+### 5) Ask questions anytime
+- Examples: “How finely should I chop the onions?” / “What heat level?”
+- It answers briefly, then reminds you to press the button or continue.
+
+### 6) Finish
+- After the last step, **press the button once more** to complete.
+- Say **“exit”** at any time to quit.
 
 
 ## Test the system
-Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.)
+**Demo Video (Must Watch)**
 
-Answer the following:
+You can watch the  [**Demo Video**](https://drive.google.com/file/d/15Dc6L-n8PIi3LA8wX3G2NgVQAjvs3cX8/view?usp=drive_link):
+[https://drive.google.com/file/d/15Dc6L-n8PIi3LA8wX3G2NgVQAjvs3cX8/view?usp=drive_link](https://drive.google.com/file/d/15Dc6L-n8PIi3LA8wX3G2NgVQAjvs3cX8/view?usp=drive_link)
+
+**Demo Log**
+
+You can view the **[cooking_assistant.log](./cooking_assistant.log)** to see system runtime messages, including Ollama responses, user speech inputs, and button interactions.
+
+
 
 ### What worked well about the system and what didn't?
 \*\**your answer here*\*\*
@@ -141,13 +204,6 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
-
-
-
-
-
-
-
 
 
 
