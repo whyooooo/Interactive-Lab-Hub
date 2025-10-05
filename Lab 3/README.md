@@ -114,9 +114,9 @@ b. Button / Tap Interaction
 
 ## Prototype your system
 
-# [Interactive Cooking Assistant](./cooking_assistant.py) (Raspberry Pi + Vosk + tinyllama/Ollama)
+ [Interactive Cooking Assistant](./cooking_assistant.py) (Raspberry Pi + Vosk + tinyllama/Ollama)
 
-## [cooking_assistant.py](./cooking_assistant.py)
+ [cooking_assistant.py](./cooking_assistant.py)
 
 ## What it is
 A voice-first cooking guide that runs on Raspberry Pi. It uses:
@@ -204,6 +204,7 @@ You can view the **[cooking_assistant.log](./cooking_assistant.log)** to see sys
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
