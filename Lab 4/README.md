@@ -173,8 +173,9 @@ These sketches raise several questions about comfort, usability, and how the par
 
 **\*\*\*Pick one of these designs to prototype.\*\*\***
 
-You can watch the [**Demo Video**]（[https://drive.google.com/file/d/15Dc6L-n8PIi3LA8wX3G2NgVQAjvs3cX8/view?usp=drive_link](https://drive.google.com/file/d/1Dl_3RgF6iVdlgRXepE26UaXHCEjDCt_f/view?usp=sharing))
+You can watch the demo video: (https://drive.google.com/file/d/1Dl_3RgF6iVdlgRXepE26UaXHCEjDCt_f/view?usp=sharing))
 
+We chose to put both the touchpad and joystick on the top surface. I think this arrangement makes it easier for the user to control both with one or two hands while keeping the device stable on a table. The top layout also helps prevent accidental touches and makes the joystick movement smoother.
 
 ### Part D
 ### Physical considerations for displaying information and housing parts
@@ -189,16 +190,15 @@ These sketches show several designs of how the display and controls could be arr
 
 **\*\*\*Pick one of these display designs to integrate into your prototype.\*\*\***
 
-You can watch the [**Demo Video**]（[[https://drive.google.com/file/d/15Dc6L-n8PIi3LA8wX3G2NgVQAjvs3cX8/view?usp=drive_link](https://drive.google.com/file/d/1qNc5Mcd5SbnA4Rmggszs_ECRqs1J-wYU/view?usp=sharing)])
-
-
-
 **\*\*\*Explain the rationale for the design.\*\*\*** (e.g. Does it need to be a certain size or form or need to be able to be seen from a certain distance?)
 
-Build a cardboard prototype of your design.
-
+We picked the Laptop design because it allows both the joystick and touchpad to be placed side by side, making them easy to reach and use at the same time. The OLED screen is positioned above them, similar to a laptop display, which makes it easy to see while interacting with the controls. This setup also keeps the device compact and stable on a flat surface, which is useful for desktop use. While the size of the screen is slightly small but clear enough to show essential information like the current song name with the artist name. 
 
 **\*\*\*Document your rough prototype.\*\*\***
+
+![](prototype.jpg)
+
+You can watch the demo video: (https://drive.google.com/file/d/1qNc5Mcd5SbnA4Rmggszs_ECRqs1J-wYU/view?usp=sharing)
 
 
 # LAB PART 2
