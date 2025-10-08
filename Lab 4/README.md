@@ -67,98 +67,349 @@ F) [Record the interaction](#part-f)
 
 ## The Report (Part 1: A-D, Part 2: E-F)
 
+### Quick Start: Python Environment Setup
+
+1. **Create and activate a virtual environment in Lab 4:**
+	```bash
+	cd ~/Interactive-Lab-Hub/Lab\ 4
+	python3 -m venv .venv
+	source .venv/bin/activate
+	```
+2. **Install all Lab 4 requirements:**
+	```bash
+	pip install -r requirements2025.txt
+	```
+3. **Check CircuitPython Blinka installation:**
+	```bash
+	python blinkatest.py
+	```
+	If you see "Hello blinka!", your setup is correct.
+
 ### Part A
-### Capacitive Sensing, a.k.a. Human-Twizzler Interaction 
+### Test for Capacitive Sensing, a.k.a. Human-Twizzler Interaction 
+Set up photo:
+![Capacitive Sensing Setup](Capacitive_Sensing_setup.jpg)
 
-We want to introduce you to the [capacitive sensor](https://learn.adafruit.com/adafruit-mpr121-gator) in your kit. It's one of the most flexible input devices we are able to provide. At boot, it measures the capacitance on each of the 12 contacts. Whenever that capacitance changes, it considers it a user touch. You can attach any conductive material. In your kit, you have copper tape that will work well, but don't limit yourself! In the example below, we use Twizzlers--you should pick your own objects.
+#### Test for directly touching Twizzler:
+Video:
 
-
-Plug in the capacitive sensor board with the QWIIC connector. Connect your Twizzlers with either the copper tape or the alligator clips (the clips work better). Install the latest requirements from your working virtual environment:
-
-These Twizzlers are connected to pads 6 and 10. When you run the code and touch a Twizzler, the terminal will print out the following
+log info:
 
 ```
-(circuitpython) pi@ixe00:~/Interactive-Lab-Hub/Lab 4 $ python cap_test.py 
-Twizzler 10 touched!
-Twizzler 6 touched!
+(.venv) pi@max:~/Interactive-Lab-Hub/Lab 4 $ python cap_test.py 
+Twizzler 2 touched!
+Twizzler 7 touched!
+Twizzler 11 touched!
+Twizzler 11 touched!
+Twizzler 11 touched!
+Twizzler 11 touched!
+Twizzler 0 touched!
+Twizzler 1 touched!
+Twizzler 1 touched!
+Twizzler 9 touched!
+Twizzler 9 touched!
+Twizzler 9 touched!
+```
+
+#### Test for touching Twizzler connecting to a conductor:
+
+Video:
+
+log info:
+
+```
+(.venv) pi@max:~/Interactive-Lab-Hub/Lab 4 $ python cap_test.py 
+Twizzler 9 touched!
+Twizzler 9 touched!
+Twizzler 9 touched!
+Twizzler 9 touched!
+Twizzler 9 touched!
+Twizzler 9 touched!
 ```
 
 ### Part B
 ### More sensors
 
-#### Light/Proximity/Gesture sensor (APDS-9960)
+#### Test for Light/Proximity/Gesture sensor (APDS-9960)
 
-We here want you to get to know this awesome sensor [Adafruit APDS-9960](https://www.adafruit.com/product/3595). It is capable of sensing proximity, light (also RGB), and gesture! 
- 
-<img src="https://cdn-shop.adafruit.com/970x728/3595-06.jpg" width=200>
- 
+Set up photo:
+![LightProximityGesture Sensor Setup](LightProximityGesture_sensor_setup.jpg)
 
-Connect it to your pi with Qwiic connector and try running the three example scripts individually to see what the sensor is capable of doing!
+#### Test for proximity_test.py:
 
-```
-(circuitpython) pi@ixe00:~/Interactive-Lab-Hub/Lab 4 $ python proximity_test.py
-...
-(circuitpython) pi@ixe00:~/Interactive-Lab-Hub/Lab 4 $ python gesture_test.py
-...
-(circuitpython) pi@ixe00:~/Interactive-Lab-Hub/Lab 4 $ python color_test.py
-...
-```
+Video:
 
-You can go the the [Adafruit GitHub Page](https://github.com/adafruit/Adafruit_CircuitPython_APDS9960) to see more examples for this sensor!
-
-#### Rotary Encoder 
-
-A rotary encoder is an electro-mechanical device that converts the angular position to analog or digital output signals. The [Adafruit rotary encoder](https://www.adafruit.com/product/4991#technical-details) we ordered for you came with separate breakout board and encoder itself, that is, they will need to be soldered if you have not yet done so! We will be bringing the soldering station to the lab class for you to use, also, you can go to the MakerLAB to do the soldering off-class. Here is some [guidance on soldering](https://learn.adafruit.com/adafruit-guide-excellent-soldering/preparation) from Adafruit. When you first solder, get someone who has done it before (ideally in the MakerLAB environment). It is a good idea to review this material beforehand so you know what to look at.
-
-<p float="left">
-
-   
-<img src="https://cdn-shop.adafruit.com/970x728/377-02.jpg" height="200" />
-<img src="https://cdn-shop.adafruit.com/970x728/4991-09.jpg" height="200">
-</p>
-
-Connect it to your pi with Qwiic connector and try running the example script, it comes with an additional button which might be useful for your design!
+log info:
 
 ```
-(circuitpython) pi@ixe00:~/Interactive-Lab-Hub/Lab 4 $ python encoder_test.py
+(.venv) pi@max:~/Interactive-Lab-Hub/Lab 4 $ python proximity_test.py
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+1
+1
+1
+3
+6
+12
+17
+27
+41
+63
+116
+155
+188
+193
+191
+197
+133
+51
+33
+15
+7
+5
+3
+2
+2
+0
+1
+1
+2
+2
+2
+3
+4
+5
+7
+8
+7
+7
+10
+11
+12
+13
+14
+17
+20
+19
+22
+23
+28
+37
+39
+69
+148
+200
+229
+250
+229
+53
+21
+32
+25
+16
+1
+0
+0
 ```
 
-You can go to the [Adafruit Learn Page](https://learn.adafruit.com/adafruit-i2c-qt-rotary-encoder/python-circuitpython) to learn more about the sensor! The sensor actually comes with an LED (neo pixel): Can you try lighting it up? 
+#### Test for python gesture_test.py
 
-#### Joystick 
+Video:
 
-
-A [joystick](https://www.sparkfun.com/products/15168) can be used to sense and report the input of the stick for it pivoting angle or direction. It also comes with a button input!
-
-<p float="left">
-<img src="https://cdn.sparkfun.com//assets/parts/1/3/5/5/8/15168-SparkFun_Qwiic_Joystick-01.jpg" height="200" />
-</p>
-
-Connect it to your pi with Qwiic connector and try running the example script to see what it can do!
+log info:
 
 ```
-(circuitpython) pi@ixe00:~/Interactive-Lab-Hub/Lab 4 $ python joystick_test.py
+(.venv) pi@max:~/Interactive-Lab-Hub/Lab 4 $ python gesture_test.py
+up
+down
+left
+right
+up
 ```
 
-You can go to the [SparkFun GitHub Page](https://github.com/sparkfun/Qwiic_Joystick_Py) to learn more about the sensor!
+#### Test for python python color_test.py
 
-#### Distance Sensor
+Video:
 
-
-Earlier we have asked you to play with the proximity sensor, which is able to sense objects within a short distance. Here, we offer [Sparkfun Proximity Sensor Breakout](https://www.sparkfun.com/products/15177), With the ability to detect objects up to 20cm away.
-
-<p float="left">
-<img src="https://cdn.sparkfun.com//assets/parts/1/3/5/9/2/15177-SparkFun_Proximity_Sensor_Breakout_-_20cm__VCNL4040__Qwiic_-01.jpg" height="200" />
-
-</p>
-
-Connect it to your pi with Qwiic connector and try running the example script to see how it works!
+log info:
 
 ```
-(circuitpython) pi@ixe00:~/Interactive-Lab-Hub/Lab 4 $ python qwiic_distance.py
+(.venv) pi@max:~/Interactive-Lab-Hub/Lab 4 $ python color_test.py
+red:  6536
+green:  3846
+blue:  2644
+clear:  12522
+color temp 1990.6272888854146
+light lux 2013.2632200000003
+red:  763
+green:  499
+blue:  375
+clear:  1797
+color temp 2522.5192015127095
+light lux 265.42479999999995
+red:  605
+green:  407
+blue:  228
+clear:  1254
+color temp 2277.817358077517
+light lux 279.10181000000006
 ```
 
-You can go to the [SparkFun GitHub Page](https://github.com/sparkfun/Qwiic_Proximity_Py) to learn more about the sensor and see other examples
+#### Test for Rotary Encoder 
+
+Set up photo:
+![Rotary Encoder Setup](Rotary_Encoder_setup.jpg)
+
+Video:
+
+log info:
+
+```
+(.venv) pi@max:~/Interactive-Lab-Hub/Lab 4 $ python encoder_test.py
+Found product 4991
+Position: 0
+Position: -1
+Position: -3
+Position: -4
+Position: -5
+Position: -6
+Position: -7
+Position: -8
+Position: -7
+Position: -6
+Position: -5
+Position: -4
+Position: -3
+Position: -2
+Position: -1
+Position: 0
+Position: 1
+Position: 2
+Position: 3
+Position: 4
+Position: 5
+Position: 6
+Position: 7
+Position: 8
+Position: 9
+Position: 10
+Position: 11
+Position: 12
+Position: 13
+Position: 14
+```
+
+#### Test for Joystick 
+
+Set up photo:
+![Joystick Setup](Joystick_setup.jpg)
+
+Video:
+
+log info:
+
+```
+(.venv) pi@max:~/Interactive-Lab-Hub/Lab 4 $ python joystick_test.py
+
+SparkFun qwiic Joystick   Example 1
+
+Initialized. Firmware Version: v 2.6
+X: 524, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 524, Y: 1023, Button: 1
+X: 524, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 520, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 1023, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 0, Y: 400, Button: 1
+X: 66, Y: 378, Button: 1
+X: 524, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+X: 524, Y: 514, Button: 1
+```
+
+#### Test for Distance Sensor
+
+Set up photo:
+![Distance Sensor Setup](Distance_Sensor_setup.jpg)
+
+Video:
+
+log info:
+
+```
+(.venv) pi@max:~/Interactive-Lab-Hub/Lab 4 $ python qwiic_distance.py
+
+SparkFun Proximity Sensor VCN4040 Example 1
+
+Proximity Value: 1
+Proximity Value: 1
+Proximity Value: 1
+Proximity Value: 1
+Proximity Value: 3
+Proximity Value: 56
+Proximity Value: 500
+Proximity Value: 620
+Proximity Value: 622
+Proximity Value: 64
+Proximity Value: 23
+Proximity Value: 14
+Proximity Value: 8
+Proximity Value: 5
+Proximity Value: 4
+Proximity Value: 2
+Proximity Value: 2
+Proximity Value: 3
+Proximity Value: 2
+Proximity Value: 3
+Proximity Value: 2
+Proximity Value: 2
+Proximity Value: 2
+Proximity Value: 1
+Proximity Value: 1
+Proximity Value: 1
+Proximity Value: 1
+Proximity Value: 1
+Proximity Value: 1
+Proximity Value: 2
+Proximity Value: 3
+Proximity Value: 5
+Proximity Value: 10
+Proximity Value: 18
+Proximity Value: 31
+Proximity Value: 61
+Proximity Value: 129
+Proximity Value: 282
+Proximity Value: 534
+Proximity Value: 1264
+Proximity Value: 3946
+Proximity Value: 20137
+Proximity Value: 20066
+Proximity Value: 16977
+Proximity Value: 12042
+Proximity Value: 585
+Proximity Value: 31
+```
 
 ### Part C
 ### Physical considerations for sensing
