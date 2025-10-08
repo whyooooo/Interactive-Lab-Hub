@@ -85,13 +85,15 @@ F) [Record the interaction](#part-f)
 	```
 	If you see "Hello blinka!", your setup is correct.
 
+
 ### Part A
 ### Test for Capacitive Sensing, a.k.a. Human-Twizzler Interaction 
 Set up photo:
-![Capacitive Sensing Setup](Capacitive_Sensing_setup.jpg)
+
+<img src="Capacitive_Sensing_setup.jpg" alt="Capacitive Sensing Setup" width="400">
 
 #### Test for directly touching Twizzler:
-Video:
+Video: [https://drive.google.com/file/d/1jtIyU4fzgyAFQZ10SFjRVbTX_9X6H59N/view?usp=sharing](https://drive.google.com/file/d/1jtIyU4fzgyAFQZ10SFjRVbTX_9X6H59N/view?usp=sharing)
 
 log info:
 
@@ -113,7 +115,8 @@ Twizzler 9 touched!
 
 #### Test for touching Twizzler connecting to a conductor:
 
-Video:
+Video:[https://drive.google.com/file/d/1I-tb-lTlRMRaVxKZEWBnxo6AMztpMPcA/view?usp=drive_link](https://drive.google.com/file/d/1I-tb-lTlRMRaVxKZEWBnxo6AMztpMPcA/view?usp=drive_link)
+
 
 log info:
 
@@ -133,11 +136,12 @@ Twizzler 9 touched!
 #### Test for Light/Proximity/Gesture sensor (APDS-9960)
 
 Set up photo:
-![LightProximityGesture Sensor Setup](LightProximityGesture_sensor_setup.jpg)
+
+<img src="LightProximityGesture_sensor_setup.jpg" alt="LightProximityGesture Sensor Setup" width="400">
 
 #### Test for proximity_test.py:
 
-Video:
+Video:[https://drive.google.com/file/d/1cLOCBwlsfwFD6SLhqpRPtK6jyAotpeGS/view?usp=drive_link](https://drive.google.com/file/d/1cLOCBwlsfwFD6SLhqpRPtK6jyAotpeGS/view?usp=drive_link)
 
 log info:
 
@@ -223,7 +227,7 @@ log info:
 
 #### Test for python gesture_test.py
 
-Video:
+Video:[https://drive.google.com/file/d/1iwvdlU0op5dFtTBxByexz7uFNlAtNyES/view?usp=drive_link](https://drive.google.com/file/d/1iwvdlU0op5dFtTBxByexz7uFNlAtNyES/view?usp=drive_link)
 
 log info:
 
@@ -238,7 +242,7 @@ up
 
 #### Test for python python color_test.py
 
-Video:
+Video:[https://drive.google.com/file/d/1RKQZQ6ctD7I9oUKpsX780PhnJvhb6WkC/view?usp=drive_link](https://drive.google.com/file/d/1RKQZQ6ctD7I9oUKpsX780PhnJvhb6WkC/view?usp=drive_link)
 
 log info:
 
@@ -267,9 +271,10 @@ light lux 279.10181000000006
 #### Test for Rotary Encoder 
 
 Set up photo:
-![Rotary Encoder Setup](Rotary_Encoder_setup.jpg)
 
-Video:
+<img src="Rotary_Encoder_setup.jpg" alt="Rotary Encoder Setup" width="400">
+
+Video:[https://drive.google.com/file/d/1o-7zOtNsHrdKv-IvUMFV6fjNV6xq_pDC/view?usp=drive_link](https://drive.google.com/file/d/1o-7zOtNsHrdKv-IvUMFV6fjNV6xq_pDC/view?usp=drive_link)
 
 log info:
 
@@ -311,9 +316,11 @@ Position: 14
 #### Test for Joystick 
 
 Set up photo:
-![Joystick Setup](Joystick_setup.jpg)
 
-Video:
+<img src="Joystick_setup.jpg" alt="Joystick Setup" width="400">
+
+Video:[https://drive.google.com/file/d/1SOgJV07gCmHdvlncBlJw9fFS8DV8Rsjm/view?usp=drive_link](https://drive.google.com/file/d/1SOgJV07gCmHdvlncBlJw9fFS8DV8Rsjm/view?usp=drive_link)
+
 
 log info:
 
@@ -351,9 +358,10 @@ X: 524, Y: 514, Button: 1
 #### Test for Distance Sensor
 
 Set up photo:
-![Distance Sensor Setup](Distance_Sensor_setup.jpg)
 
-Video:
+<img src="Distance_Sensor_setup.jpg" alt="Distance Sensor Setup" width="400">
+
+Video:[https://drive.google.com/file/d/1cSJWj98R7OTybSJ-Pzs8wXq9cjfAnhoj/view?usp=drive_link](https://drive.google.com/file/d/1cSJWj98R7OTybSJ-Pzs8wXq9cjfAnhoj/view?usp=drive_link)
 
 log info:
 
