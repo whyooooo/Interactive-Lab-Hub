@@ -464,6 +464,16 @@ Music Controller – Laptop Design:
 For the prototype, we chose the Laptop design because it offers a clear and practical layout for both viewing and interaction. The OLED display is placed on the upper panel, similar to a laptop screen with an angle that easy for read, while the joystick and touchpad are on the lower surface for easy access. This setup allows users to see the display while controlling the music functions with both hands. The cardboard model helped test spacing and comfort, showing that the layout is stable. I found that slightly tilting the display backward would improve visibility and make the design more comfortable for longer use.
 
 
+#### FeedBack
+
+"The design of the controller is really new which I haven't seen and expected. I really like this design and demo. I think I will buy one to place on my desk which is interesting. While I think it may be a good idea to have some more functions as well. It will be good to make users can design the functions by themselves as there are so many units you can use. Also, the screen touch may be another improvement in the future. But in all I like it!"
+
+——Yibin Wei
+
+"In this era of voice commands and smart touchscreens, going back to controlling music with a joystick feels wonderfully nostalgic — that mechanical feedback actually makes listening to music more tangible and satisfying. As for the design, I have a small suggestion: what if you place the pad directly beneath the joystick? That way, users could perform multi-dimensional actions — up, down, left, right, and press — all from a single touchpoint. But then again, don’t many smart speakers already offer similar functionality?"
+
+——Dean Xu
+
 # LAB PART 2
 
 ### Part 2
