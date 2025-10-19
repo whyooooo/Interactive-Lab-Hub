@@ -478,170 +478,135 @@ For the prototype, we chose the Laptop design because it offers a clear and prac
 
 ### Part 2
 
-Following exploration and reflection from Part 1, complete the "looks like," "works like" and "acts like" prototypes for your design, reiterated below.
-
-
 
 ### Part E
 
-#### Chaining Devices and Exploring Interaction Effects
 
-For Part 2, you will design and build a fun interactive prototype using multiple inputs and outputs. This means chaining Qwiic and STEMMA QT devices (e.g., buttons, encoders, sensors, servos, displays) and/or combining with traditional breadboard prototyping (e.g., LEDs, buzzers, etc.).
+### Interactive Player:
 
-**Your prototype should:**
-- Combine at least two different types of input and output devices, inspired by your physical considerations from Part 1.
-- Be playful, creative, and demonstrate multi-input/multi-output interaction.
+### Design:
 
-**Document your system with:**
-- Code for your multi-device demo
-- Photos and/or video of the working prototype in action
-- A simple interaction diagram or sketch showing how inputs and outputs are connected and interact
-- Written reflection: What did you learn about multi-input/multi-output interaction? What was fun, surprising, or challenging?
+### Prototype:
+![Interactive Player v2](./interactive_player_v2.png)
 
-**Questions to consider:**
-- What new types of interaction become possible when you combine two or more sensors or actuators?
-- How does the physical arrangement of devices (e.g., where the encoder or sensor is placed) change the user experience?
-- What happens if you use one device to control or modulate another (e.g., encoder sets a threshold, sensor triggers an action)?
-- How does the system feel if you swap which device is "primary" and which is "secondary"?
+### Workflow:
 
-Try chaining different combinations and document what you discover!
+In all, it is a Player to play music, music can be both mp3 and wav.
+Music is stored in [./music](./music)
 
-See encoder_accel_servo_dashboard.py in the Lab 4 folder for an example of chaining together three devices.
+1. Screen: Screen shows the Song name, Artist, Volume and playing status.
 
-**`Lab 4/encoder_accel_servo_dashboard.py`**
+2. Touchboard: Touchboard is connected with the Twizzler and only one pin is useful which is pin0. It is used to Pause/Play music (2s Protection after one touch)
 
-#### Using Multiple Qwiic Buttons: Changing I2C Address (Physically & Digitally)
+3. JoyStick: Joystick is used for adjust volume and music. Volume can be up/down 5 with Joystick up/down (2s Protection after one adjustment). Music can be switched forward/backward with Joystick left/right (5s Protection after one switch).
 
-If you want to use more than one Qwiic Button in your project, you must give each button a unique I2C address. There are two ways to do this:
+4. Small lights: There are three small lights. When music is paused, the lights are always on. When music is Playing the lights flashes and the flash logic is determined by the distance sensor.
 
-##### 1. Physically: Soldering Address Jumpers
+5. Distantce sensor: Distance sensor is used to detect distance. When the hand is close to the distance sensor and the value the sensor detected is larger than 50, the lights darken one by one for 0.5s. When the hand is far from the sensor and the value the sensor deteced is smaller or equal to 50, the lights flashes together for 0.5s.
 
-On the back of the Qwiic Button, you'll find four solder jumpers labeled A0, A1, A2, and A3. By bridging these with solder, you change the I2C address. Only one button on the chain can use the default address (0x6F).
+### Video:
+In the video, I touch the devices a lot times to show the protection mechanism.
 
-**Address Table:**
+[Interactive_player_v2 Demo Video](https://drive.google.com/file/d/1U5S64xmguhD9As9GV8Me7hgE1hskPfrm/view?usp=sharing): [https://drive.google.com/file/d/1U5S64xmguhD9As9GV8Me7hgE1hskPfrm/view?usp=sharing](https://drive.google.com/file/d/1U5S64xmguhD9As9GV8Me7hgE1hskPfrm/view?usp=sharing)
 
-| A3 | A2 | A1 | A0 | Address (hex) |
-|----|----|----|----|---------------|
-|  0 |  0 |  0 |  0 |    0x6F       |
-|  0 |  0 |  0 |  1 |    0x6E       |
-|  0 |  0 |  1 |  0 |    0x6D       |
-|  0 |  0 |  1 |  1 |    0x6C       |
-|  0 |  1 |  0 |  0 |    0x6B       |
-|  0 |  1 |  0 |  1 |    0x6A       |
-|  0 |  1 |  1 |  0 |    0x69       |
-|  0 |  1 |  1 |  1 |    0x68       |
-|  1 |  0 |  0 |  0 |    0x67       |
-| ...| ...| ...| ... |     ...      |
 
-For example, if you solder A0 closed (leave A1, A2, A3 open), the address becomes 0x6E.
 
-**Soldering Tips:**
-- Use a small amount of solder to bridge the pads for the jumper you want to close.
-- Only one jumper needs to be closed for each address change (see table above).
-- Power cycle the button after changing the jumper.
+### Quick Start:
 
-##### 2. Digitally: Using Software to Change Address
+Code: [Interactive_player_v2.py](interactive_player_v2.py)
 
-You can also change the address in software (temporarily or permanently) using the example script `qwiic_button_ex6_changeI2CAddress.py` in the Lab 4 folder. This is useful if you want to reassign addresses without soldering.
+Music folder: [./music](music)
 
-Run the script and follow the prompts:
+### 1. Setup Environment
+
+**1.1 Update system**
 ```bash
-python qwiic_button_ex6_changeI2CAddress.py
-```
-Enter the new address (e.g., 5B for 0x5B) when prompted. Power cycle the button after changing the address.
-
-**Note:** The software method is less foolproof and you need to make sure to keep track of which button has which address!
-
-
-##### Using Multiple Buttons in Code
-
-After setting unique addresses, you can use multiple buttons in your script. See these example scripts in the Lab 4 folder:
-
-- **`qwiic_1_button.py`**: Basic example for reading a single Qwiic Button (default address 0x6F). Run with:
-	```bash
-	python qwiic_1_button.py
-	```
-
-- **`qwiic_button_led_demo.py`**: Demonstrates using two Qwiic Buttons at different addresses (e.g., 0x6F and 0x6E) and controlling their LEDs. Button 1 toggles its own LED; Button 2 toggles both LEDs. Run with:
-	```bash
-	python qwiic_button_led_demo.py
-	```
-
-Here is a minimal code example for two buttons:
-```python
-import qwiic_button
-
-# Default button (0x6F)
-button1 = qwiic_button.QwiicButton()
-# Button with A0 soldered (0x6E)
-button2 = qwiic_button.QwiicButton(0x6E)
-
-button1.begin()
-button2.begin()
-
-while True:
-		if button1.is_button_pressed():
-				print("Button 1 pressed!")
-		if button2.is_button_pressed():
-				print("Button 2 pressed!")
+sudo apt update && sudo apt upgrade -y
 ```
 
-For more details, see the [Qwiic Button Hookup Guide](https://learn.sparkfun.com/tutorials/qwiic-button-hookup-guide/all#i2c-address).
+**1.2 Install dependencies**
 
----
-
-### PCF8574 GPIO Expander: Add More Pins Over I²C
-
-Sometimes your Pi’s header GPIO pins are already full (e.g., with a display or HAT). That’s where an I²C GPIO expander comes in handy.
-
-We use the Adafruit PCF8574 I²C GPIO Expander, which gives you 8 extra digital pins over I²C. It’s a great way to prototype with LEDs, buttons, or other components on the breadboard without worrying about pin conflicts—similar to how Arduino users often expand their pinouts when prototyping physical interactions.
-
-**Why is this useful?**
-- You only need two wires (I²C: SDA + SCL) to unlock 8 extra GPIOs.
-- It integrates smoothly with CircuitPython and Blinka.
-- It allows a clean prototyping workflow when the Pi’s 40-pin header is already occupied by displays, HATs, or sensors.
-- Makes breadboard setups feel more like an Arduino-style prototyping environment where it’s easy to wire up interaction elements.
-
-**Demo Script:** `Lab 4/gpio_expander.py`
-
-<p align="center">
-    <img src="gpio_leds.gif" alt="GPIO Expander LED Demo" width="400"/>
-</p>
-
-We connected 8 LEDs (through 220 Ω resistors) to the expander and ran a little light show. The script cycles through three patterns:
-- Chase (one LED at a time, left to right)
-- Knight Rider (back-and-forth sweep)
-- Disco (random blink chaos)
-
-Every few runs, the script swaps to the next pattern automatically:
 ```bash
-python gpio_expander.py
+sudo apt install python3 python3-venv python3-pip python3-dev \
+  python3-pil python3-pil.imagetk python3-pygame python3-lgpio \
+  fonts-dejavu-core i2c-tools git -y
 ```
 
-This is a playful way to visualize how the expander works, but the same technique applies if you wanted to prototype buttons, switches, or other interaction elements. It’s a lightweight, flexible addition to your prototyping toolkit.
+### 2. Create and Activate Virtual Environment
 
----
-
-### Servo Control with SparkFun Servo pHAT
-For this lab, you will use the **SparkFun Servo pHAT** to control a micro servo (such as the Miuzei MS18 or similar 9g servo). The Servo pHAT stacks directly on top of the Adafruit Mini PiTFT (135×240) display without pin conflicts:
-- The Mini PiTFT uses SPI (GPIO22, 23, 24, 25) for display and buttons ([SPI pinout](https://pinout.xyz/pinout/spi)).
-- The Servo pHAT uses I²C (GPIO2 & 3) for the PCA9685 servo driver ([I2C pinout](https://pinout.xyz/pinout/i2c)).
-- Since SPI and I²C are separate buses, you can use both boards together.
-**⚡ Power:**
-- Plug a USB-C cable into the Servo pHAT to provide enough current for the servos. The Pi itself should still be powered by its own USB-C supply. Do NOT power servos from the Pi’s 5V rail.
-
-<p align="center">
-    <img src="Servo_pHAT.gif" alt="Servo pHAT Demo" width="400"/>
-</p>
-
-**Basic Python Example:**
-We provide a simple example script: `Lab 4/pi_servo_hat_test.py` (requires the `pi_servo_hat` Python package).
-Run the example:
+```bash
+cd ~/Interactive-Lab-Hub/Lab\ 4
+python3 -m venv venv
+source venv/bin/activate
 ```
-python pi_servo_hat_test.py
+
+To reactivate later:
+
+```bash
+cd ~/Interactive-Lab-Hub/Lab\ 4 && source venv/bin/activate
 ```
-For more details and advanced usage, see the [official SparkFun Servo pHAT documentation](https://learn.sparkfun.com/tutorials/pi-servo-phat-v2-hookup-guide/all#resources-and-going-further).
-A servo motor is a rotary actuator that allows for precise control of angular position. The position is set by the width of an electrical pulse (PWM). You can read [this Adafruit guide](https://learn.adafruit.com/adafruit-arduino-lesson-14-servo-motors/servo-motors) to learn more about how servos work.
+
+### 3. Install Python Libraries
+
+```bash
+pip install --upgrade pip
+pip install pygame Pillow adafruit-circuitpython-rgb-display \
+            adafruit-circuitpython-mpr121 adafruit-circuitpython-apds9960 \
+            sparkfun-qwiic-joystick
+```
+
+### 4. Hardware Connections
+
+| Module | Interface | Connection |
+|--------|------------|-------------|
+| ST7789 Display | SPI | CS → D5, DC → D25, RST → D24, BL → D22 |
+| MPR121 Touch Sensor | I²C | SDA → SDA, SCL → SCL |
+| Qwiic Joystick | I²C (Qwiic) | Address 0x20 |
+| APDS9960 Proximity | I²C | Address 0x39 |
+| GPIO LEDs | GPIO | 18 / 19 / 20 with 220 Ω resistors |
+
+**Note:** Use a Qwiic splitter or change ADDR pins if I²C address conflicts occur.
+
+### 5. Run the Program
+```bash
+python3 Interactive_player_v2.py
+```
+
+### 6. Controls
+
+| Control | Function |
+|----------|-----------|
+| Twizzler touch | Play / Pause |
+| Joystick left / right | Previous / Next song |
+| Joystick up / down | Volume up / down |
+| Proximity sensor | Change LED pattern |
+
+### Reflection:
+**What did you learn about multi-input/multi-output interaction? What was fun, surprising, or challenging?**
+
+I learned that multi-input/multi-output interaction is about coordinating relationships rather than just adding more sensors or outputs. It was fun to see how combining touch, joystick, and proximity sensors created unexpected layers of control and feedback. The most challenging part was synchronizing timing between devices so that inputs didn’t conflict, while the most surprising was how small physical layout changes could completely shift the user experience.
+
+**What new types of interaction become possible when you combine two or more sensors or actuators?**
+
+Combining touch, joystick, and proximity sensors allowed layered control — for example, touch toggles playback, joystick changes tracks or volume, and proximity modulates LED patterns. These overlapping inputs created richer, context-sensitive responses instead of simple one-to-one actions.
+
+**How does the physical arrangement of devices change the user experience?**
+
+The position of sensors strongly affected intuitiveness — placing the proximity sensor near the display made users naturally reach toward the screen, reinforcing the link between movement and visual feedback. Physical grouping helped users perceive the system as one cohesive interface.
+
+**What happens if you use one device to control or modulate another?**
+
+Letting proximity or joystick input change LED behavior made the system feel more dynamic and expressive. It turned simple actions into layered feedback, giving users a sense of “live” control beyond basic commands.
+
+**How does the system feel if you swap which device is "primary" and which is "secondary"?**
+
+When the joystick became primary (controlling music) and touch secondary (visual feedback), the system felt more instrument-like. Reversing that made it calmer and more display-focused, showing how hierarchy among inputs shapes the overall interaction tone.
+
+
+### Peer Feedback:
+
+""
+
 
 ---
 
@@ -650,8 +615,107 @@ A servo motor is a rotary actuator that allows for precise control of angular po
 
 ### Record
 
-Document all the prototypes and iterations you have designed and worked on! Again, deliverables for this lab are writings, sketches, photos, and videos that show what your prototype:
-* "Looks like": shows how the device should look, feel, sit, weigh, etc.
-* "Works like": shows what the device can do
-* "Acts like": shows how a person would interact with the device
+## Interactive Player v1:
+Initially, we use the Design from first part
 
+### Design:
+
+![](prototype.jpg)
+
+### Prototype:
+<img src="./interactive_player_v1.png" alt="Interactive Player v1" width="700">
+
+
+### Workflow:
+
+In all, it is a Player to play music, music can be both mp3 and wav.
+Music is stored in [./music](./music)
+
+1. Screen: Screen shows the Song name, Artist, Volume and playing status.
+
+2. Touchboard: Touchboard is connected with the Twizzler and only one pin is useful which is pin0. It is used to Pause/Play music (2s Protection after one touch)
+
+3. JoyStick: Joystick is used for adjust volume and music. Volume can be up/down 5 with Joystick up/down (2s Protection after one adjustment). Music can be switched forward/backward with Joystick left/right (5s Protection after one switch).
+
+### Video:
+In the video, I touch the devices a lot times to show the protection mechanism.
+
+[Demo Video Version 1](https://drive.google.com/file/d/1ebrkM2wU_Ngbhbl5PHCyEltDHRlG0HOn/view?usp=drive_link): [https://drive.google.com/file/d/1ebrkM2wU_Ngbhbl5PHCyEltDHRlG0HOn/view?usp=drive_link](https://drive.google.com/file/d/1ebrkM2wU_Ngbhbl5PHCyEltDHRlG0HOn/view?usp=drive_link)
+
+### Quick Start
+
+Code: [Interactive_player_v1.py](interactive_player_v1.py)  
+Music folder: [./music](music)
+
+---
+
+## 1. Setup Environment
+
+**1.1 Update system**
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+**1.2 Install dependencies**
+```bash
+sudo apt install python3 python3-venv python3-pip python3-dev \
+  python3-pil python3-pil.imagetk python3-pygame python3-lgpio \
+  fonts-dejavu-core i2c-tools git -y
+```
+
+**2. Create and Activate Virtual Environment**
+```bash
+cd ~/Interactive-Lab-Hub/Lab\ 4
+python3 -m venv venv
+source venv/bin/activate
+```
+
+To reactivate later:
+
+```bash
+cd ~/Interactive-Lab-Hub/Lab\ 4 && source venv/bin/activate
+```
+
+**3. Install Python Libraries**
+```bash
+pip install --upgrade pip
+pip install pygame Pillow adafruit-circuitpython-rgb-display \
+            adafruit-circuitpython-mpr121 sparkfun-qwiic-joystick
+```
+
+**4. Hardware Connections**
+
+| Module | Interface | Connection |
+|--------|------------|-------------|
+| ST7789 Display | SPI | CS → D5, DC → D25, RST → D24, BL → D22 |
+| MPR121 Touch Sensor | I²C | SDA → SDA, SCL → SCL |
+| Qwiic Joystick | I²C (Qwiic) | Address 0x20 |
+
+**Note:** Ensure I²C devices do not share the same address.
+
+**5. Run the Program**
+
+```bash
+python3 Interactive_player_v1.py
+```
+
+**6. Controls**
+| Control | Function |
+|----------|-----------|
+| Twizzler touch | Play / Pause |
+| Joystick left / right | Previous / Next song |
+| Joystick up / down | Volume up / down |
+
+
+### Peer Feedback:
+"I really like the device, it is just the old style player which I haven't seen for decades. But I think it may be more interesting to add some of the interactive lights which also can make it cooler!"
+
+——Li Wei
+
+"The device is really good and I like the functions a lot! For the design, as I see you guys have a lot different design initially, what about use the Potato Mines design which is the first graph of the picture. I like that really much! Also you guys has a Joysticker, it will be interesting to play with that!"
+
+——Fei Xu
+
+### Processes
+
+After we collected feedback from peers. We add some more interactions and change the design to imrove our player. Then Version 2 is created.
