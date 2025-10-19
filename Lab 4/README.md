@@ -478,142 +478,7 @@ For the prototype, we chose the Laptop design because it offers a clear and prac
 
 ### Part 2
 
-
 ### Part E
-
-
-### Interactive Player:
-
-### Design:
-
-### Prototype:
-![Interactive Player v2](./interactive_player_v2.png)
-
-### Workflow:
-
-In all, it is a Player to play music, music can be both mp3 and wav.
-Music is stored in [./music](./music)
-
-1. Screen: Screen shows the Song name, Artist, Volume and playing status.
-
-2. Touchboard: Touchboard is connected with the Twizzler and only one pin is useful which is pin0. It is used to Pause/Play music (2s Protection after one touch)
-
-3. JoyStick: Joystick is used for adjust volume and music. Volume can be up/down 5 with Joystick up/down (2s Protection after one adjustment). Music can be switched forward/backward with Joystick left/right (5s Protection after one switch).
-
-4. Small lights: There are three small lights. When music is paused, the lights are always on. When music is Playing the lights flashes and the flash logic is determined by the distance sensor.
-
-5. Distantce sensor: Distance sensor is used to detect distance. When the hand is close to the distance sensor and the value the sensor detected is larger than 50, the lights darken one by one for 0.5s. When the hand is far from the sensor and the value the sensor deteced is smaller or equal to 50, the lights flashes together for 0.5s.
-
-### Video:
-In the video, I touch the devices a lot times to show the protection mechanism.
-
-[Interactive_player_v2 Demo Video](https://drive.google.com/file/d/1U5S64xmguhD9As9GV8Me7hgE1hskPfrm/view?usp=sharing): [https://drive.google.com/file/d/1U5S64xmguhD9As9GV8Me7hgE1hskPfrm/view?usp=sharing](https://drive.google.com/file/d/1U5S64xmguhD9As9GV8Me7hgE1hskPfrm/view?usp=sharing)
-
-
-
-### Quick Start:
-
-Code: [Interactive_player_v2.py](interactive_player_v2.py)
-
-Music folder: [./music](music)
-
-### 1. Setup Environment
-
-**1.1 Update system**
-```bash
-sudo apt update && sudo apt upgrade -y
-```
-
-**1.2 Install dependencies**
-
-```bash
-sudo apt install python3 python3-venv python3-pip python3-dev \
-  python3-pil python3-pil.imagetk python3-pygame python3-lgpio \
-  fonts-dejavu-core i2c-tools git -y
-```
-
-### 2. Create and Activate Virtual Environment
-
-```bash
-cd ~/Interactive-Lab-Hub/Lab\ 4
-python3 -m venv venv
-source venv/bin/activate
-```
-
-To reactivate later:
-
-```bash
-cd ~/Interactive-Lab-Hub/Lab\ 4 && source venv/bin/activate
-```
-
-### 3. Install Python Libraries
-
-```bash
-pip install --upgrade pip
-pip install pygame Pillow adafruit-circuitpython-rgb-display \
-            adafruit-circuitpython-mpr121 adafruit-circuitpython-apds9960 \
-            sparkfun-qwiic-joystick
-```
-
-### 4. Hardware Connections
-
-| Module | Interface | Connection |
-|--------|------------|-------------|
-| ST7789 Display | SPI | CS → D5, DC → D25, RST → D24, BL → D22 |
-| MPR121 Touch Sensor | I²C | SDA → SDA, SCL → SCL |
-| Qwiic Joystick | I²C (Qwiic) | Address 0x20 |
-| APDS9960 Proximity | I²C | Address 0x39 |
-| GPIO LEDs | GPIO | 18 / 19 / 20 with 220 Ω resistors |
-
-**Note:** Use a Qwiic splitter or change ADDR pins if I²C address conflicts occur.
-
-### 5. Run the Program
-```bash
-python3 Interactive_player_v2.py
-```
-
-### 6. Controls
-
-| Control | Function |
-|----------|-----------|
-| Twizzler touch | Play / Pause |
-| Joystick left / right | Previous / Next song |
-| Joystick up / down | Volume up / down |
-| Proximity sensor | Change LED pattern |
-
-### Reflection:
-**What did you learn about multi-input/multi-output interaction? What was fun, surprising, or challenging?**
-
-I learned that multi-input/multi-output interaction is about coordinating relationships rather than just adding more sensors or outputs. It was fun to see how combining touch, joystick, and proximity sensors created unexpected layers of control and feedback. The most challenging part was synchronizing timing between devices so that inputs didn’t conflict, while the most surprising was how small physical layout changes could completely shift the user experience.
-
-**What new types of interaction become possible when you combine two or more sensors or actuators?**
-
-Combining touch, joystick, and proximity sensors allowed layered control — for example, touch toggles playback, joystick changes tracks or volume, and proximity modulates LED patterns. These overlapping inputs created richer, context-sensitive responses instead of simple one-to-one actions.
-
-**How does the physical arrangement of devices change the user experience?**
-
-The position of sensors strongly affected intuitiveness — placing the proximity sensor near the display made users naturally reach toward the screen, reinforcing the link between movement and visual feedback. Physical grouping helped users perceive the system as one cohesive interface.
-
-**What happens if you use one device to control or modulate another?**
-
-Letting proximity or joystick input change LED behavior made the system feel more dynamic and expressive. It turned simple actions into layered feedback, giving users a sense of “live” control beyond basic commands.
-
-**How does the system feel if you swap which device is "primary" and which is "secondary"?**
-
-When the joystick became primary (controlling music) and touch secondary (visual feedback), the system felt more instrument-like. Reversing that made it calmer and more display-focused, showing how hierarchy among inputs shapes the overall interaction tone.
-
-
-### Peer Feedback:
-
-""
-
-
----
-
-
-### Part F
-
-### Record
 
 ## Interactive Player v1:
 Initially, we use the Design from first part
@@ -719,3 +584,137 @@ python3 Interactive_player_v1.py
 ### Processes
 
 After we collected feedback from peers. We add some more interactions and change the design to imrove our player. Then Version 2 is created.
+
+
+### Reflection:
+**What did you learn about multi-input/multi-output interaction? What was fun, surprising, or challenging?**
+
+I learned that multi-input/multi-output interaction is about coordinating relationships rather than just adding more sensors or outputs. It was fun to see how combining touch, joystick, and proximity sensors created unexpected layers of control and feedback. The most challenging part was synchronizing timing between devices so that inputs didn’t conflict, while the most surprising was how small physical layout changes could completely shift the user experience.
+
+**What new types of interaction become possible when you combine two or more sensors or actuators?**
+
+Combining touch, joystick, and proximity sensors allowed layered control — for example, touch toggles playback, joystick changes tracks or volume, and proximity modulates LED patterns. These overlapping inputs created richer, context-sensitive responses instead of simple one-to-one actions.
+
+**How does the physical arrangement of devices change the user experience?**
+
+The position of sensors strongly affected intuitiveness — placing the proximity sensor near the display made users naturally reach toward the screen, reinforcing the link between movement and visual feedback. Physical grouping helped users perceive the system as one cohesive interface.
+
+**What happens if you use one device to control or modulate another?**
+
+Letting proximity or joystick input change LED behavior made the system feel more dynamic and expressive. It turned simple actions into layered feedback, giving users a sense of “live” control beyond basic commands.
+
+**How does the system feel if you swap which device is "primary" and which is "secondary"?**
+
+When the joystick became primary (controlling music) and touch secondary (visual feedback), the system felt more instrument-like. Reversing that made it calmer and more display-focused, showing how hierarchy among inputs shapes the overall interaction tone.
+
+
+### Peer Feedback:
+
+""
+
+
+---
+
+
+### Part F
+
+### Record
+
+## Interactive Player:
+
+### Design:
+
+### Prototype:
+![Interactive Player v2](./interactive_player_v2.png)
+
+### Workflow:
+
+In all, it is a Player to play music, music can be both mp3 and wav.
+Music is stored in [./music](./music)
+
+1. Screen: Screen shows the Song name, Artist, Volume and playing status.
+
+2. Touchboard: Touchboard is connected with the Twizzler and only one pin is useful which is pin0. It is used to Pause/Play music (2s Protection after one touch)
+
+3. JoyStick: Joystick is used for adjust volume and music. Volume can be up/down 5 with Joystick up/down (2s Protection after one adjustment). Music can be switched forward/backward with Joystick left/right (5s Protection after one switch).
+
+4. Small lights: There are three small lights. When music is paused, the lights are always on. When music is Playing the lights flashes and the flash logic is determined by the distance sensor.
+
+5. Distantce sensor: Distance sensor is used to detect distance. When the hand is close to the distance sensor and the value the sensor detected is larger than 50, the lights darken one by one for 0.5s. When the hand is far from the sensor and the value the sensor deteced is smaller or equal to 50, the lights flashes together for 0.5s.
+
+### Video:
+In the video, I touch the devices a lot times to show the protection mechanism.
+
+[Interactive_player_v2 Demo Video](https://drive.google.com/file/d/1U5S64xmguhD9As9GV8Me7hgE1hskPfrm/view?usp=sharing): [https://drive.google.com/file/d/1U5S64xmguhD9As9GV8Me7hgE1hskPfrm/view?usp=sharing](https://drive.google.com/file/d/1U5S64xmguhD9As9GV8Me7hgE1hskPfrm/view?usp=sharing)
+
+
+
+### Quick Start:
+
+Code: [Interactive_player_v2.py](interactive_player_v2.py)
+
+Music folder: [./music](music)
+
+### 1. Setup Environment
+
+**1.1 Update system**
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+**1.2 Install dependencies**
+
+```bash
+sudo apt install python3 python3-venv python3-pip python3-dev \
+  python3-pil python3-pil.imagetk python3-pygame python3-lgpio \
+  fonts-dejavu-core i2c-tools git -y
+```
+
+### 2. Create and Activate Virtual Environment
+
+```bash
+cd ~/Interactive-Lab-Hub/Lab\ 4
+python3 -m venv venv
+source venv/bin/activate
+```
+
+To reactivate later:
+
+```bash
+cd ~/Interactive-Lab-Hub/Lab\ 4 && source venv/bin/activate
+```
+
+### 3. Install Python Libraries
+
+```bash
+pip install --upgrade pip
+pip install pygame Pillow adafruit-circuitpython-rgb-display \
+            adafruit-circuitpython-mpr121 adafruit-circuitpython-apds9960 \
+            sparkfun-qwiic-joystick
+```
+
+### 4. Hardware Connections
+
+| Module | Interface | Connection |
+|--------|------------|-------------|
+| ST7789 Display | SPI | CS → D5, DC → D25, RST → D24, BL → D22 |
+| MPR121 Touch Sensor | I²C | SDA → SDA, SCL → SCL |
+| Qwiic Joystick | I²C (Qwiic) | Address 0x20 |
+| APDS9960 Proximity | I²C | Address 0x39 |
+| GPIO LEDs | GPIO | 18 / 19 / 20 with 220 Ω resistors |
+
+**Note:** Use a Qwiic splitter or change ADDR pins if I²C address conflicts occur.
+
+### 5. Run the Program
+```bash
+python3 Interactive_player_v2.py
+```
+
+### 6. Controls
+
+| Control | Function |
+|----------|-----------|
+| Twizzler touch | Play / Pause |
+| Joystick left / right | Previous / Next song |
+| Joystick up / down | Volume up / down |
+| Proximity sensor | Change LED pattern |
