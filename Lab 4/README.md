@@ -622,7 +622,29 @@ When the joystick became primary (controlling music) and touch secondary (visual
 
 ## Interactive Player:
 
+### Storyboard:
+
+![](storyboard.jpg)
+
+Here are several interactive scenarios for our interactive player:
+
+1. **User far from the player** → All three LEDs **blink together** *(Light Effect #1)*  
+2. **User close to the player** → LEDs **blink in sequence**: red → green → yellow *(Light Effect #2)*  
+3. **Music paused** → All LEDs remain **steadily on**  
+4. **Joystick controls:**  
+   - ⬅️ **Left** → Previous song  
+   - ➡️ **Right** → Next song  
+   - ⬆️ **Up** → Volume up  
+   - ⬇️ **Down** → Volume down  
+
+The **OLED screen** continuously displays the **current track** and **volume level**, updating in real time with joystick or touchpad interactions.  
+Together, these components create an engaging and intuitive interface that reacts to both **motion** and **touch**.
+
 ### Design:
+
+![](design.jpg)
+
+We drew inspiration from the Potato Mine character in Plants vs. Zombies to design the appearance of our interactive music player. The joystick is positioned on the top, resembling the sprout of the Potato Mine, while colorful indicator lights display different modes and statuses. The OLED screen shows key information such as the current track and volume level. At the bottom, a capacitive touchpad serves as the play/pause control, completing a playful and functional design that is practical for music interaction.
 
 ### Prototype:
 ![Interactive Player v2](./interactive_player_v2.png)
