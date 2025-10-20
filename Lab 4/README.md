@@ -494,7 +494,7 @@ Initially, we use the Design from first part
 ### Workflow:
 
 In all, it is a Player to play music, music can be both mp3 and wav.
-Music is stored in [./music](./music)
+Music is stored in [./music](music)
 
 1. Screen: Screen shows the Song name, Artist, Volume and playing status.
 
@@ -654,7 +654,7 @@ Together, these components create an engaging and intuitive interface that react
 ### Workflow:
 
 In all, it is a Player to play music, music can be both mp3 and wav.
-Music is stored in [./music](./music)
+Music is stored in [./music](music)
 
 1. Screen: Screen shows the Song name, Artist, Volume and playing status.
 
