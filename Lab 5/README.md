@@ -174,4 +174,47 @@ During the lecture, we mentioned questions to help characterize a material:
 
 Following exploration and reflection from Part 1, finish building your interactive system, and demonstrate it in use with a video.
 
+## Desk Guardian:
+
+### Overview: 
+
+The Desk Guardian is a vision-based interactive system designed to detect whether a person is present at their desk and to monitor posture for slouching or leaning forward. When poor posture or absence is detected, the system can trigger visual or auditory alerts, pause or resume a local program, or send control signals to connected devices.
+
+### Purpose and Motivation: 
+
+During extended study or work sessions, users often (1) Lean forward or slump unconsciously, leading to neck or back strain. (2) Leave their desks without pausing media playback or ongoing tasks. (3) Leave the seat too frequently, which reduces working efficiency.
+This system provides real-time feedback to help users maintain a healthy posture and stay focused. It also generates a daily summary report to monitor posture and activity patterns throughout the day. In addition, it can integrate with other interactive systems — for example, a local media player that automatically pauses when the user leaves and resumes when they return.
+
+
+
+### Core Algorithms:
+
+1. Presence Detection:
+
+- Uses MediaPipe Face Detection or MediaPipe Pose to determine if a user is visible.
+
+- If no face or body is detected for several seconds, the system interprets this as "away".
+
+- When the user reappears, the system identifies this as "returned".
+
+2. Posture Detection:
+
+- Tracks the nose, ears, and shoulders landmarks using MediaPipe Pose.
+
+- Calculates the neck–shoulder angle or relative vertical distance between keypoints.
+
+- If the nose or ears drop below a set threshold for several seconds, the system classifies the user as slouching and triggers an alert.
+
+3. Output Actions:
+
+- On-screen overlay text (like "Welcome back").
+
+- Audible or LED-based alert.
+
+- Sends a "PAUSE" or "RESUME" event to an external program (like music player).
+
+### Optional Extension:
+Add prolonged sitting detection by monitoring how long the user remains seated. For example, if no posture change is detected for over an hour, the system can issue a "Take a break" reminder.
+
 **\*\*\*Include a short video demonstrating the finished result.\*\*\***
+
