@@ -216,9 +216,10 @@ Posture Detection:
 ### Storyboard:
 
 Interaction scenarios: 
-1. leave to seat
-2. back to seat
-3. sitting duration monitor
+1. leave seat - red light shines - message "Leaving"
+2. back to seat - message "Welcome Back"
+3. sitting duration monitor: when reaches a specific duration - message "Take a rest"
+4. All the activities stored in a log to generate a summarize report for the day
 
 **\*\*\*Include a short video demonstrating the finished result.\*\*\***
 
