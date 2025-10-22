@@ -182,7 +182,9 @@ The Desk Guardian is a vision-based interactive system designed to detect whethe
 
 ### Purpose and Motivation: 
 
-During extended study or work sessions, users often (1) Leave their desks without pausing media playback or ongoing tasks. (2) Leave the seat too frequently, which reduces working efficiency.
+During extended study or work sessions, users often 
+(1) Leave the seat too frequently, which reduces working efficiency. 
+(2) Leave their desks without pausing media playback or ongoing tasks. 
 
 This system provides real-time feedback to help users to stay focused but also maintain health working tempo. It also generates a daily summary report to monitor activity patterns throughout the day. In addition, it can integrate with other interactive systems — for example, a local media player that automatically pauses when the user leaves and resumes when they return.
 
@@ -206,7 +208,7 @@ This system provides real-time feedback to help users to stay focused but also m
 - Sends a "PAUSE" or "RESUME" event to an external program (like music player).
 
 ### Optional Extension:
-* Posture Detection:
+Posture Detection:
 - Tracks the nose, ears, and shoulders landmarks using MediaPipe Pose.
 - Calculates the neck–shoulder angle or relative vertical distance between keypoints.
 - If the nose or ears drop below a set threshold for several seconds, the system classifies the user as slouching and triggers an alert.
