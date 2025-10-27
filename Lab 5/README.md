@@ -169,26 +169,63 @@ You: quit
 **Design consideration**: Slower response can help us to catch a photo each minute to check whether people is on the chair and give suggestions to stand up for some time if they have been their for such long time. Just capture the image each minute and give the response to the ollama again to see whether the person is on the chair for such long time. It can also be asynchronous or rotate after the last one is done.
 
 #### Teachable Machines
-Google's [TeachableMachines](https://teachablemachine.withgoogle.com/train) is very useful for prototyping with the capabilities of machine learning. We are using [a python package](https://github.com/MeqdadDev/teachable-machine-lite) with tensorflow lite to simplify the deployment process.
+##### Objective
+In this experiment, our goal was to enable the visual recognition model to identify the **drinking action**.  
+After careful analysis, we abstracted the action into two key components:
+1. **Cup leaving the table**
+2. **Hand holding the cup**
 
-![Tachable Machines Pi](Readme_files/tml_pi.gif)
+These two visual cues together represent the essential meaning of “drinking.”
 
-To get started, install dependencies into a virtual environment for this exercise as described in [prep.md](prep.md):
+##### Data Preparation
+We collected a series of short video clips featuring different cups, various interaction states, and empty backgrounds.  
+From these recordings, we extracted image frames to create our dataset.
 
-After installation, connect your webcam to your Pi and use **VNC to access to your Pi**, open the terminal, and go to Lab 5 folder and run the example script:
-(***it will not work if you use ssh from your laptop***)
-
-
-```
-(venv-tml) pi@ixe00:~ Interactive-Lab-Hub/Lab 5 $ python tml_example.py
-```
+**Figure** Sample images showing different cup types, actions, and background scenes.  
+<img width="1499" height="1020" alt="数据集" src="https://github.com/user-attachments/assets/dd784c1d-e0ed-497c-ba09-7006f315a360" />
 
 
-Next train your own model. Visit [TeachableMachines](https://teachablemachine.withgoogle.com/train), select Image Project and Standard model. The raspberry pi 4 is capable to run not just the low resource models. Second, use the webcam on your computer to train a model. *Note: It might be advisable to use the pi webcam in a similar setting you want to deploy it to improve performance.*  For each class try to have over 150 samples, and consider adding a background or default class where you have nothing in view so the model is trained to know that this is the background. Then create classes based on what you want the model to classify. Lastly, preview and iterate. Finally export your model as a 'Tensorflow lite' model. You will find an '.tflite' file and a 'labels.txt' file. Upload these to your pi (through one of the many ways such as [scp](https://www.raspberrypi.com/documentation/computers/remote-access.html#using-secure-copy), sftp, [vnc](https://help.realvnc.com/hc/en-us/articles/360002249917-VNC-Connect-and-Raspberry-Pi#transferring-files-to-and-from-your-raspberry-pi-0-6), or a connected visual studio code remote explorer).
-![Teachable Machines Browser](Readme_files/tml_browser.gif)
-![Tensorflow Lite Download](Readme_files/tml_download-model.png)
 
-Include screenshots of your use of Teachable Machines, and write how you might use this to create your own classifier. Include what different affordances this method brings, compared to the OpenCV or MediaPipe options.
+##### Model Training & Results
+We categorized the samples into three main classes:
+
+1. **Cup held in hand**  
+2. **Cup on the desk**  
+3. **No cup in sight**
+
+A Tensorflow Lite model was trained using these labeled samples.  
+We used a standard train-validation split and tuned hyperparameters such as learning rate, batch size, and number of epochs to achieve optimal performance.
+
+**Figure** Training data distribution, parameters, and evaluation metrics.  
+<img width="1840" height="960" alt="training process" src="https://github.com/user-attachments/assets/19cd318a-d30f-4c0c-9c39-2747296aab89" />
+
+Test results showing prediction accuracy. The trained model achieved **nearly perfect accuracy (≈1.0)** on the test dataset.
+
+
+##### Conclusion
+The experiment demonstrates that our model can accurately distinguish between the three defined states:
+
+- **Cup held in hand**  
+- **Cup on the desk**  
+- **No cup in sight**
+
+This confirms that abstracting the drinking action into its **core visual components**—the *hand–cup interaction*—is an effective approach for robust action recognition using **Teachable Machine** and **TensorFlow Lite**.
+
+Example test predictions demonstrating real-time classification of cup states:
+
+<img width="878" height="946" alt="Hold a cup" src="https://github.com/user-attachments/assets/3f52587c-6827-48e0-9cf7-544aa7388db0" />
+
+**Figure.** Cup held in hand 
+
+<img width="878" height="946" alt="Cup single" src="https://github.com/user-attachments/assets/6be6ebaa-bc49-4023-a61e-32049cf99449" />
+
+**Figure.** Cup on the desk
+
+<img width="878" height="946" alt="No cup" src="https://github.com/user-attachments/assets/4473c6f4-135e-4926-845e-26342e4a350c" />
+
+**Figure.** No Cup in sight
+
+---
 
 #### (Optional) Legacy audio and computer vision observation approaches
 In an earlier version of this class students experimented with observing through audio cues. Find the material here:
@@ -283,9 +320,11 @@ In an earlier version of this class students experimented with foundational comp
   - **`detection_images/`** — stores every captured image.  
     Example image files:
   <p float="left">
-    <img src="detection_images/detection_20251026_204725.jpg" width="250" />
-    <img src="detection_images/detection_20251026_220819.jpg" width="250" />
-    <img src="detection_images/detection_20251026_221139.jpg" width="250" />
+  <img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/d3d04aa7-862d-48e3-80c6-e0d74955d773" />
+<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/72144b27-628e-4461-8bbc-4142e26fd241" />
+<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/06d2fa50-140f-4666-89dd-add1d76dc913" />
+
+
   </p>
   
   - **`detection_log.txt`** — overwritten on each start; one line per detection.  
@@ -315,18 +354,40 @@ In an earlier version of this class students experimented with foundational comp
 ### Part C
 ### Test the interaction prototype
 
-Now flight test your interactive prototype and **note down your observations**:
-For example:
 1. When does it what it is supposed to do?
-1. When does it fail?
-1. When it fails, why does it fail?
-1. Based on the behavior you have seen, what other scenarios could cause problems?
 
-**\*\*\*Think about someone using the system. Describe how you think this will work.\*\*\***
+    It works quite well when the lighting is normal and the camera can clearly see my full upper body. In those times, it correctly shows “person sitting” or “person standing,” and after 30 minutes of sitting it gives the alert message just like planned.
+
+2. When does it fail?
+
+    It fails sometimes when the light is too dim or when I move too fast. It also gets confused if someone walks behind me, because it still detects a person and doesn’t count me as away. Also, when someone is sitting behind me, and I am out of the range of the camera, it will detect people sitting as well.
+
+3. When it fails, why does it fail?
+
+    Mostly because the image model doesn’t have enough data for low-light or side-angle postures. Also the background detection is very simple—it just looks for any human shape, so extra movement or other people cause wrong classification.
+
+4. Based on the behavior you have seen, what other scenarios could cause problems?
+
+    When the camera angle is wrong, the camera can't see the chair behind, when I wear dark clothes on a dark background.
+
+**Think about someone using the system. Describe how you think this will work.**
+
 1. Are they aware of the uncertainties in the system?
-1. How bad would they be impacted by a miss classification?
-1. How could change your interactive system to address this?
-1. Are there optimizations you can try to do on your sense-making algorithm.
+
+    Not really, because the system doesn’t show confidence or warnings.
+
+2. How bad would they be impacted by a miss classification?
+
+    Not serious, but they might get wrong alerts or miss the reminder to stand up.
+
+3. How could change your interactive system to address this?
+
+    Add a confidence display or a short message explaining the reason of detection. Also change direction or add more directions. If one of them shows that the person is not sitting, then it get the result the person is not sitting.
+
+4. Are there optimizations you can try to do on your sense-making algorithm.
+
+    Add asynchronous Ollama API call, better light correction, add more directions and camera numbers.
+
 
 ### Part D
 ### Characterize your own Observant system
@@ -334,15 +395,35 @@ For example:
 Now that you have experimented with one or more of these sense-making systems **characterize their behavior**.
 During the lecture, we mentioned questions to help characterize a material:
 * What can you use X for?
+
+  Detect human posture and remind breaks.
+
 * What is a good environment for X?
+
+  Bright room, single user, clear background. No other people around.
+
 * What is a bad environment for X?
+
+  Dark room, multiple people, or moving background.
+
 * When will X break?
+
+  When light is too low or camera is blocked.
+
 * When it breaks how will X break?
+
+  It stops updating or keeps showing wrong state.
+
 * What are other properties/behaviors of X?
+
+  It runs automatically and logs time data. And automatically give alerts through speakers.
+
 * How does X feel?
 
-**\*\*\*Include a short video demonstrating the answers to these questions.\*\*\***
+  A quiet assistant watches gently. Help you to relax after a long time sitting.
+  
 
+**\*\*\*Include a short video demonstrating the answers to these questions.\*\*\***
 ### Part 2.
 
 Following exploration and reflection from Part 1, finish building your interactive system, and demonstrate it in use with a video.
