@@ -1,0 +1,36 @@
+2025-10-26 20:28:07 - person sitting
+2025-10-26 20:30:19 - person standing
+2025-10-26 20:33:41 - person sitting
+2025-10-26 20:37:05 - person away from seat
+2025-10-26 20:40:26 - person away from seat
+2025-10-26 20:43:51 - person away from seat
+2025-10-26 20:47:25 - person away from seat
+2025-10-26 20:50:50 - person away from seat
+2025-10-26 20:54:08 - person away from seat
+2025-10-26 20:57:26 - person sitting
+2025-10-26 21:00:48 - person away from seat
+2025-10-26 21:04:12 - person away from seat
+2025-10-26 21:07:32 - person away from seat
+2025-10-26 21:10:57 - person away from seat
+2025-10-26 21:14:21 - person sitting
+2025-10-26 21:17:43 - person away from seat
+2025-10-26 21:21:04 - person away from seat
+2025-10-26 21:24:23 - person away from seat
+2025-10-26 21:27:39 - person away from seat
+2025-10-26 21:31:01 - person away from seat
+2025-10-26 21:34:23 - person away from seat
+2025-10-26 21:37:56 - person away from seat
+2025-10-26 21:41:18 - person away from seat
+2025-10-26 21:44:41 - person away from seat
+2025-10-26 21:48:03 - person away from seat
+2025-10-26 21:51:25 - person sitting
+2025-10-26 21:54:47 - person sitting
+2025-10-26 21:58:12 - person sitting
+2025-10-26 22:01:31 - person sitting
+2025-10-26 22:04:54 - person sitting
+2025-10-26 22:08:19 - person sitting
+2025-10-26 22:11:39 - person sitting
+2025-10-26 22:14:59 - person sitting
+2025-10-26 22:18:32 - person sitting
+2025-10-26 22:21:51 - person sitting - ALERT
+2025-10-26 22:25:17 - person sitting - ALERT
