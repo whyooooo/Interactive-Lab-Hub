@@ -242,6 +242,8 @@ In an earlier version of this class students experimented with foundational comp
 
 #### Storyboard:
 
+![](storyboard.jpg)
+
 #### Code:
 
   - [`detect_status.py`](./detect_status.py)
@@ -263,8 +265,6 @@ In an earlier version of this class students experimented with foundational comp
   - 30-minute sitting alert (speech or beep; de-duplicated)
   
   - Reset rule: standing/away for 4 minutes resets the sitting timer
-  
-  - Live timeline plot for the last 24 hours (Sitting=green, Standing=blue, Away=red; alerts marked with a yellow star)
   
   - Saves images and a plain-text log
 
@@ -475,7 +475,7 @@ Interaction scenarios:
 3. Sitting duration monitor: when reaches a specific duration - message "Take a rest"
 4. All the activities stored in a log to generate a summarize report for the day
 
-![](storyboard.jpg)
+
 
 **\*\*\*Include a short video demonstrating the finished result.\*\*\***
 
