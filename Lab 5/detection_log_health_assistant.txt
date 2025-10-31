@@ -1,0 +1,126 @@
+2025-10-29 14:00:15 - person sitting
+2025-10-29 14:02:20 - person sitting
+2025-10-29 14:04:25 - person sitting
+2025-10-29 14:06:30 - person sitting
+2025-10-29 14:08:35 - person sitting
+2025-10-29 14:10:40 - person sitting
+2025-10-29 14:12:45 - Posture Alert: bent over for >5 seconds
+2025-10-29 14:12:50 - person sitting
+2025-10-29 14:14:55 - person sitting
+2025-10-29 14:17:00 - person sitting
+2025-10-29 14:19:05 - person sitting
+2025-10-29 14:21:10 - person sitting
+2025-10-29 14:23:15 - person sitting
+2025-10-29 14:25:20 - person sitting
+2025-10-29 14:27:25 - person sitting
+2025-10-29 14:29:30 - person sitting
+2025-10-29 14:30:15 - You have been sitting for more than 30 minutes, please get up and move around - ALERT
+2025-10-29 14:31:35 - person sitting
+2025-10-29 14:33:40 - person standing
+2025-10-29 14:35:45 - person standing
+2025-10-29 14:37:50 - person sitting
+2025-10-29 14:39:55 - person sitting
+2025-10-29 14:42:00 - person sitting
+2025-10-29 14:44:05 - person sitting
+2025-10-29 14:46:10 - person sitting
+2025-10-29 14:48:15 - person sitting
+2025-10-29 14:50:20 - Hydration Alert: no cup for >10 minutes
+2025-10-29 14:50:25 - person sitting
+2025-10-29 14:52:30 - person sitting
+2025-10-29 14:54:35 - person away from seat
+2025-10-29 14:56:40 - person away from seat
+2025-10-29 14:58:45 - person sitting
+2025-10-29 15:00:50 - person sitting
+2025-10-29 15:02:55 - person sitting
+2025-10-29 15:05:00 - person sitting
+2025-10-29 15:07:05 - person sitting
+2025-10-29 15:09:10 - Posture Alert: bent over for >5 seconds
+2025-10-29 15:09:15 - person sitting
+2025-10-29 15:11:20 - person sitting
+2025-10-29 15:13:25 - person sitting
+2025-10-29 15:15:30 - person sitting
+2025-10-29 15:17:35 - person sitting
+2025-10-29 15:19:40 - person sitting
+2025-10-29 15:21:45 - person sitting
+2025-10-29 15:23:50 - person sitting
+2025-10-29 15:25:55 - person sitting
+2025-10-29 15:28:00 - person sitting
+2025-10-29 15:28:50 - You have been sitting for more than 30 minutes, please get up and move around - ALERT
+2025-10-29 15:30:05 - person sitting
+2025-10-29 15:32:10 - person standing
+2025-10-29 15:34:15 - person standing
+2025-10-29 15:36:20 - person away from seat
+2025-10-29 15:38:25 - person away from seat
+2025-10-29 15:40:30 - person sitting
+2025-10-29 15:42:35 - person sitting
+2025-10-29 15:44:40 - person sitting
+2025-10-29 15:46:45 - person sitting
+2025-10-29 15:48:50 - person sitting
+2025-10-29 15:50:55 - person sitting
+2025-10-29 15:53:00 - person sitting
+2025-10-29 15:55:05 - person sitting
+2025-10-29 15:57:10 - person sitting
+2025-10-29 15:59:15 - person sitting
+2025-10-29 16:01:20 - Hydration Alert: cup idle for >20 minutes
+2025-10-29 16:01:25 - person sitting
+2025-10-29 16:03:30 - person sitting
+2025-10-29 16:05:35 - person sitting
+2025-10-29 16:07:40 - person sitting
+2025-10-29 16:09:45 - person sitting
+2025-10-29 16:10:30 - You have been sitting for more than 30 minutes, please get up and move around - ALERT
+2025-10-29 16:11:50 - person sitting
+2025-10-29 16:13:55 - Posture Alert: bent over for >5 seconds
+2025-10-29 16:14:00 - person sitting
+2025-10-29 16:16:05 - person sitting
+2025-10-29 16:18:10 - person sitting
+2025-10-29 16:20:15 - person sitting
+2025-10-29 16:22:20 - person sitting
+2025-10-29 16:24:25 - person sitting
+2025-10-29 16:26:30 - person standing
+2025-10-29 16:28:35 - person standing
+2025-10-29 16:30:40 - person away from seat
+2025-10-29 16:32:45 - person away from seat
+2025-10-29 16:34:50 - person sitting
+2025-10-29 16:36:55 - person sitting
+2025-10-29 16:39:00 - person sitting
+2025-10-29 16:41:05 - person sitting
+2025-10-29 16:43:10 - person sitting
+2025-10-29 16:45:15 - person sitting
+2025-10-29 16:47:20 - person sitting
+2025-10-29 16:49:25 - person sitting
+2025-10-29 16:51:30 - person sitting
+2025-10-29 16:53:35 - person sitting
+2025-10-29 16:55:40 - person sitting
+2025-10-29 16:57:45 - person sitting
+2025-10-29 16:59:50 - person sitting
+2025-10-29 17:01:55 - person sitting
+2025-10-29 17:04:00 - person sitting
+2025-10-29 17:04:50 - You have been sitting for more than 30 minutes, please get up and move around - ALERT
+2025-10-29 17:06:05 - person sitting
+2025-10-29 17:08:10 - person sitting
+2025-10-29 17:10:15 - person standing
+2025-10-29 17:12:20 - person standing
+2025-10-29 17:14:25 - person away from seat
+2025-10-29 17:16:30 - person away from seat
+2025-10-29 17:18:35 - person sitting
+2025-10-29 17:20:40 - person sitting
+2025-10-29 17:22:45 - person sitting
+2025-10-29 17:24:50 - person sitting
+2025-10-29 17:26:55 - person sitting
+2025-10-29 17:29:00 - person sitting
+2025-10-29 17:31:05 - person sitting
+2025-10-29 17:33:10 - person sitting
+2025-10-29 17:35:15 - person sitting
+2025-10-29 17:37:20 - person sitting
+2025-10-29 17:39:25 - person sitting
+2025-10-29 17:41:30 - person sitting
+2025-10-29 17:43:35 - person sitting
+2025-10-29 17:45:40 - person sitting
+2025-10-29 17:47:45 - person sitting
+2025-10-29 17:48:35 - You have been sitting for more than 30 minutes, please get up and move around - ALERT
+2025-10-29 17:49:50 - person sitting
+2025-10-29 17:51:55 - person sitting
+2025-10-29 17:54:00 - person sitting
+2025-10-29 17:56:05 - person sitting
+2025-10-29 17:58:10 - person sitting
+2025-10-29 18:00:15 - person sitting
