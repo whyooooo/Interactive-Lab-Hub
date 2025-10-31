@@ -429,56 +429,62 @@ During the lecture, we mentioned questions to help characterize a material:
 
 ### Part 2.
 
-Following exploration and reflection from Part 1, finish building your interactive system, and demonstrate it in use with a video.
+## Work Health Assistant
 
-## Desk Guardian:
+### Overview
 
-### Overview: 
+The Work Health Assistant is a smart desktop companion designed to help users maintain healthy work habits while sitting at their desks. By monitoring posture, sitting duration, and hydration, the device encourages physical activity and self-care throughout the day.
 
-The Desk Guardian is a vision-based interactive system designed to detect whether a person is present at their desk and monitor their sitting period. When leaving the seat, the system can trigger visual or auditory alerts, pause or resume a local program, record the action in a summary log, or send control signals to connected devices.
+### Core Features
+#### 1. Activity Recognition
+- Detects user presence when sitting on the chair.
+- Records user activity status every 5 minutes (e.g., sitting, standing, away).
+- Updates a daily activity log automatically.
 
-### Purpose and Motivation: 
+#### 2. Sitting Duration Monitoring
+- Tracks continuous sitting time.
+- If the user remains seated for more than 30 minutes without movement, the device plays a voice alert: “You have been sitting for more than 30 minutes, please get up and move around.”
 
-During extended study or work sessions, users often 
-(1) Leave the seat too frequently, which reduces working efficiency. 
-(2) Leave their desks without pausing media playback or ongoing tasks. 
+#### 3. Posture Correction
+- Identifies unhealthy or slouched sitting positions.
+- Provides real-time posture reminders: “Please straighten your back, maintain an upright posture.”
 
-This system provides real-time feedback to help users to stay focused but also maintain health working tempo. It also generates a daily summary report to monitor activity patterns throughout the day. In addition, it can integrate with other interactive systems — for example, a local media player that automatically pauses when the user leaves and resumes when they return.
+#### 4. Hydration Reminder
+- Monitors the presence of a cup on the desk.
+- If no cup is detected for 10 minutes, the device reminds: “Please grab a cup of water, you have been without hydration for over 10 minutes.”
+- If the cup is present but untouched for 20 minutes, it reminds: “Please take a drink, your water has been sitting untouched for over 20 minutes.”
 
-### Core Algorithms:
+#### 5. Daily Activity Summary
+- Automatically generates an end-of-day activity summary, including:
+- Sitting, standing, and away times
+- Posture alerts
+- Hydration reminders
 
-1. Presence Detection:
+### Storyboard
 
-- Uses MediaPipe Face Detection or MediaPipe Pose to determine if a user is visible.
+![](storyboard2.jpg)
 
-- If no face or body is detected for several seconds, the system interprets this as "away".
+### How It Works
+- Sensors track user presence, sitting posture, and desk environment.
 
-- When the user reappears, the system identifies this as "returned".
+- AI posture detection identifies ergonomic risks.
 
+- Voice feedback system delivers timely health reminders.
 
-2. Output Actions:
-
-- On-screen overlay text (like "Welcome back").
-
-- Audible or LED-based alert.
-
-- Sends a "PAUSE" or "RESUME" event to an external program (like music player).
-
-### Optional Extension:
-Posture Detection:
-- Tracks the nose, ears, and shoulders landmarks using MediaPipe Pose.
-- Calculates the neck–shoulder angle or relative vertical distance between keypoints.
-- If the nose or ears drop below a set threshold for several seconds, the system classifies the user as slouching and triggers an alert.
-
-### Storyboard:
-
-Interaction scenarios: 
-1. Leave seat - red light shines - message "Leave"
-2. Back to seat - message "Welcome Back"
-3. Sitting duration monitor: when reaches a specific duration - message "Take a rest"
-4. All the activities stored in a log to generate a summarize report for the day
+- Activity logger compiles daily health insights.
 
 
+### Benefits
+- Encourages regular movement and stretching.
 
-**\*\*\*Include a short video demonstrating the finished result.\*\*\***
+- Reduces health risks associated with prolonged sitting.
+
+- Promotes proper posture and hydration habits.
+
+- Increases overall productivity and well-being during work hours.
+
+
+### Future Enhancements
+- Integration with smartwatch data for heart rate and step tracking.
+- Customizable alert personalized options. (light, sounds, music)
 
