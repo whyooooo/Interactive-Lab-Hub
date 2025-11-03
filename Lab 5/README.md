@@ -427,6 +427,7 @@ During the lecture, we mentioned questions to help characterize a material:
 
 ### [Human Posture Detection Demo](https://drive.google.com/file/d/1aSC2VUn-aIAdUP2EGUSOeqScTsXTCyj5/view?usp=drive_link): [https://drive.google.com/file/d/1aSC2VUn-aIAdUP2EGUSOeqScTsXTCyj5/view?usp=drive_link](https://drive.google.com/file/d/1aSC2VUn-aIAdUP2EGUSOeqScTsXTCyj5/view?usp=drive_link)
 
+
 ### Part 2.
 
 ## Work Health Assistant
@@ -436,9 +437,13 @@ During the lecture, we mentioned questions to help characterize a material:
 The Work Health Assistant is a smart desktop companion designed to help users maintain healthy work habits while sitting at their desks. By monitoring posture, sitting duration, and hydration, the device encourages physical activity and self-care throughout the day.
 
 ### Core Features
+
+**Timeline = plain text log.** Items (3) Posture and (4) Hydration are **real-time**.  
+Item (1) runs **real-time detection** and captures **1 frame every 2 minutes** for **archive only**.
+
 #### 1. Activity Recognition
 - Detects user presence when sitting on the chair.
-- Records user activity status every 5 minutes (e.g., sitting, standing, away).
+- Records user activity status every 2 minutes (e.g., sitting, standing, away).
 - Updates a daily activity log automatically.
 
 #### 2. Sitting Duration Monitoring
@@ -460,9 +465,17 @@ The Work Health Assistant is a smart desktop companion designed to help users ma
 - Posture alerts
 - Hydration reminders
 
+#### 5) Daily Activity Summary
+- Automatically generates an end-of-day activity summary, including:
+- Sitting, standing, and away times
+- Posture alerts
+- Hydration reminders
+
+
 ### Storyboard
 
 ![](storyboard2.jpg)
+
 
 ### How It Works
 - Sensors track user presence, sitting posture, and desk environment.
@@ -487,4 +500,148 @@ The Work Health Assistant is a smart desktop companion designed to help users ma
 ### Future Enhancements
 - Integration with smartwatch data for heart rate and step tracking.
 - Customizable alert personalized options. (light, sounds, music)
+
+### Demo Video
+**Demo Video Link:** [https://drive.google.com/file/d/1KBYqBCIzCuANNuW4gPJ-pxu2OwrrpQUl/view?usp=drive_link](https://drive.google.com/file/d/1KBYqBCIzCuANNuW4gPJ-pxu2OwrrpQUl/view?usp=drive_link)
+
+---
+
+#### 🧩 Quick Start
+
+- **Code:** [`work_health_assistant.py`](./work_health_assistant.py)  
+- **Models:** [`model_sit.tflite`](./model_sit.tflite), [`model_cup.tflite`](./model_cup.tflite)  
+- **Output folders:** [`./detection_images_health_assistant/`](./detection_images_health_assistant/), [`detection_log_health_assistant.txt`](./detection_log_health_assistant.txt)
+
+---
+
+##### 1️ System Setup
+
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y python3 python3-venv python3-pip python3-dev \
+    python3-opencv espeak beep git curl
+````
+
+> `espeak` and `beep` are optional but recommended for voice / sound alerts.
+
+---
+
+##### 2️ Create and Activate Virtual Environment
+
+```bash
+cd ~/Interactive-Lab-Hub/Lab\ 5
+python -m venv .venv
+source .venv/bin/activate
+```
+
+To reactivate later:
+
+```bash
+cd ~/Interactive-Lab-Hub/Lab\ 5 && source .venv/bin/activate
+```
+
+---
+
+##### 3️ Install Python Dependencies
+
+Use the provided **`requirements.txt`** file:
+
+```bash
+(.venv) pip install -r requirements.txt
+```
+
+This installs the following packages:
+
+| Package                  | Version   | Description                                         |
+| ------------------------ | --------- | --------------------------------------------------- |
+| `mediapipe`              | 0.10.18   | Real-time hand & pose tracking library              |
+| `opencv-python`          | 4.11.0.86 | Core computer vision library                        |
+| `pip-chill`              | 1.0.3     | Tool for freezing clean dependency lists            |
+| `teachable-machine-lite` | 1.2.0.2   | Lightweight inference for Teachable Machine models  |
+| `torchvision`            | 0.24.0    | Torch vision utilities and pretrained model helpers |
+
+If additional packages are missing:
+
+```bash
+pip install matplotlib numpy requests tensorflow
+```
+
+---
+
+##### 4️ Install and Run Ollama (local AI runtime)
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+ollama serve &                # keep running in background
+ollama pull moondream:latest  # vision-language model
+ollama pull phi3:mini         # text classifier
+```
+
+Check that both models are available:
+
+```bash
+curl http://localhost:11434/api/tags
+```
+
+Expected output contains:
+
+```
+"moondream:latest"
+"phi3:mini"
+```
+
+---
+
+##### 5️ Prepare Models and Assets
+
+| File               | Description                                             |
+| ------------------ | ------------------------------------------------------- |
+| `model_sit.tflite` | Posture detection model (upright vs bent)               |
+| `model_cup.tflite` | Hydration state model (cup in hand / on table / no cup) |
+
+Place both `.tflite` files in the same directory as `work_health_assistant.py`.
+
+---
+
+##### 6️ Run the Assistant
+
+```bash
+python3 work_health_assistant.py
+```
+
+During startup the script will:
+
+1. Restart Ollama and verify `moondream` & `phi3:mini` are loaded.
+2. Warm up the camera and AI pipeline (takes ~10 s).
+3. Start continuous monitoring for posture and hydration events.
+4. Every 2 minutes it runs a presence check using the camera image.
+5. Voice alerts are spoken via `espeak`.
+
+---
+
+##### 7️ Default Alert Rules
+
+| Condition             | Threshold           | Voice Message                                                                      |
+| --------------------- | ------------------- | ---------------------------------------------------------------------------------- |
+| Sitting continuously  | 30 min              | “You have been sitting for more than 30 minutes, please get up and move around.”   |
+| Slouched posture      | 5 s continuous bend | “Please straighten your back, maintain an upright posture.”                        |
+| No cup detected       | 10 min              | “Please grab a cup of water, you have been without hydration for over 10 minutes.” |
+| Cup on desk untouched | 20 min              | “Please take a drink, your water has been sitting untouched for over 20 minutes.”  |
+
+---
+
+##### 8️ Outputs and Logs
+
+* **`detection_images_health_assistant/`** – captures all frames used for presence checks.
+* **`detection_log_health_assistant.txt`** – chronological log of all detections and alerts.
+* **Real-time plot** – displays status timeline (Sitting / Standing / Away) in a Matplotlib window.
+
+---
+
+##### 9️ Stop the Program
+
+Press `Ctrl + C` to exit safely.
+All threads and camera resources will be released automatically.
+
+---
 
