@@ -167,6 +167,11 @@ Hold colored objects near sensor to change your pixel!
 
 ---
 
+#### Storyboard:
+
+![](storyboard.jpg)
+
+
 ### Scenario: Building-Wide Smart Lighting Control
 
 Imagine a multi-story building where each hallway and corridor is equipped with smart lighting nodes. These nodes are connected via **MQTT** (Message Queuing Telemetry Transport) protocol, enabling centralized control and intelligent response across the entire building.
