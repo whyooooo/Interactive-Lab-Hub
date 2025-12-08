@@ -1,0 +1,26 @@
+# Smart Pillbox System Dependencies
+
+# MPR121 touch sensor (Lab 4)
+adafruit-circuitpython-mpr121>=2.1.19
+Adafruit-Blinka>=8.20.1
+# Qwiic button
+sparkfun-qwiic-button>=2.0.1
+
+# Servo control
+adafruit-circuitpython-servokit>=1.3.16
+adafruit-circuitpython-pca9685>=3.4.11
+
+# Camera and image processing (Lab 5)
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# Ollama API helpers
+requests>=2.31.0
+pyttsx3>=2.90
+
+# Misc utilities
+Pillow>=8.1.2
+
+
+
+

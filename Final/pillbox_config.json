@@ -1,0 +1,29 @@
+{
+    "doses": [
+      {
+        "start_time": "08:00",
+        "end_time": "12:00",
+        "drugs": [
+          {"name": "Drug A", "count": 1},
+          {"name": "Drug B", "count": 2}
+        ]
+      }
+    ],
+    "camera": {
+      "index": 0,
+      "width": 1280,
+      "height": 720,
+      "fps": 30,
+      "warmup_seconds": 2.0,
+      "warmup_frames": 30
+    },
+    "vision": {
+      "enabled": true,
+      "model": "moondream:latest",
+      "endpoint": "http://localhost:11434/api/generate",
+      "temperature": 0.1,
+      "timeout": 120,
+      "save_json": true,
+      "max_pills": 8
+    }
+  }

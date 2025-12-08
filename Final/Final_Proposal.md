@@ -20,10 +20,10 @@ At each scheduled dose time:
 
 Besides pill verification, the system also has basic time control and logging: it knows when you should take medicine, reminds you, records if you miss the window, and warns if you keep opening the lid without actually taking a verified dose.
 
+### StoryBoard:
 
-#### Storyboard:
+![Storyboard](./img/Storyboard.jpg)
 
-![](storyboard.jpg)
 
 ---
 
