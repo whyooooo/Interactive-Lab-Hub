@@ -1,181 +1,353 @@
-# Pill Checker
+# Pill Checker – Smart Pillbox Verification + Workshop Demo
 
-Integrated smart pillbox that combines touch sensing, camera capture, and Ollama-based vision analysis to verify every dose before it is taken. The repository satisfies all final deliverable requirements listed below and documents every iteration from smoke tests to the exhibition-friendly demo.
+**Authors:** Wenzhuo Ma - wm356, Haoye Wang - hw867
+**Course:** Interactive Device Design (Final Project)
 
----
+## Demo Video (Full User Flow)
 
-## Final Project Deliverables
-
-### 1. Project Plan (Big idea • timeline • parts • fallback)
-- **Document**: [Final_Proposal.md](./Final_Proposal.md)
-- **Summary**: Prevent medication errors by verifying pill colors/counts before ingestion.
-- **Timeline**: Week-by-week breakdown (ideation → hardware bring-up → AI pipeline → integration → user testing).
-- **Parts Needed**: MPR121 breakout, SparkFun Qwiic button, RGB LED (BCM 21/20/26), PCA9685 servo driver, USB/Pi camera, speaker, Raspberry Pi, assorted resistors/wires.
-- **Fallback Plan**: If servo lock or AI analysis fails, revert to manual confirmation workflow with logged captures and spoken prompts.
-
-### 2. Functioning Project (Interactive device/system)
-Both iterations share the same hardware stack (touch sensor + button + camera + LED + speaker) and were built sequentially so we could validate each interaction layer before moving to public demos.
-
-#### Iteration A – [`smart_pillbox.py`](./smart_pillbox.py) (Full Feature Build)
-- Dose scheduling with configurable start/end times and over-consumption lockout.
-- Touch sensor + servo hook keep the lid locked until pills are verified.
-- Camera capture + Ollama JSON parsing to ensure correct red/blue/green counts.
-- Voice prompts plus RGB LED states (idle, processing, success, failure) guide the user.
-- Demo video (placeholder): [Full smart_pillbox demo](https://example.com/smart-pillbox-demo).
-
-**Quick Start (Iteration A)**
-1. Complete Steps 1–2 in [General Quick Start](#general-quick-start-applies-to-both-iterations).
-2. Launch the experience:
-   ```bash
-   cd /home/pi/Interactive-Lab-Hub/Final
-   python3 smart_pillbox.py
-   ```
-3. Optional validation: `python3 tests/test_button_camera.py` (button + camera), `python3 tests/test_open_outside_window.py` (window guard).
-
-#### Iteration B – [`smart_pillbox_demo.py`](./smart_pillbox_demo.py) (Workshop Build)
-- Always-on green idle blink so the pillbox “looks alive” the moment power is applied.
-- Removes schedule/quantity gating; auto-speaks counts after every capture.
-- Keeps camera + AI + RGB logic identical to the full build for accurate storytelling.
-- Designed for exhibitions where attendees open the lid, watch the LED, and immediately hear per-color summaries.
-- Demo video (placeholder): [Workshop demo](https://example.com/smart-pillbox-demo-lite).
-
-**Quick Start (Iteration B)**
-1. Complete Steps 1–2 in [General Quick Start](#general-quick-start-applies-to-both-iterations).
-2. Run the simplified workflow:
-   ```bash
-   cd /home/pi/Interactive-Lab-Hub/Final
-   python3 smart_pillbox_demo.py
-   ```
-3. For LED-only verification without AI, run `python3 tests/test_green_idle_led.py`.
-
-#### General Quick Start (applies to both iterations)
-1. **Install dependencies (original commands, preserved as requested)**  
-   ```bash
-   # System dependencies
-   sudo apt-get update
-   sudo apt-get install -y python3-pip espeak
-   pip install opencv-python
-   pip install sparkfun-qwiic-button
-   pip install requests
-   pip install gpiozero
-   # Python libraries
-   pip3 install opencv-python requests adafruit-circuitpython-mpr121 adafruit-circuitpython-servokit
-
-   # Ollama (if not installed)
-   curl -fsSL https://ollama.com/install.sh | sh
-   ollama pull moondream:latest
-   ollama pull phi3:mini
-   ```
-
-2. **Configure** – edit [`pillbox_config.json`](./pillbox_config.json) to match your schedule, camera, and AI settings:
-   ```json
-   {
-     "doses": [
-       {
-         "start_time": "08:00",
-         "end_time": "08:30",
-         "drugs": [
-           {"name": "Drug A", "count": 1},
-           {"name": "Drug B", "count": 2}
-         ]
-       }
-     ],
-     "camera": {
-       "index": 0,
-       "width": 1280,
-       "height": 720,
-       "fps": 30,
-       "warmup_seconds": 2.0,
-       "warmup_frames": 30
-     },
-     "vision": {
-       "enabled": true,
-       "model": "moondream:latest",
-       "endpoint": "http://localhost:11434/api/generate",
-       "temperature": 0.1,
-       "timeout": 120,
-       "save_json": true,
-       "max_pills": 8
-     }
-   }
-   ```
-
-3. **Run the full experience**  
-   ```bash
-   cd /home/pi/Interactive-Lab-Hub/Final
-   python3 smart_pillbox.py
-   ```
-
-4. **Run the simplified demo (workshop mode)**  
-   ```bash
-   cd /home/pi/Interactive-Lab-Hub/Final
-   python3 smart_pillbox_demo.py
-   ```
-
-5. **Button → camera smoke test**  
-   ```bash
-   cd /home/pi/Interactive-Lab-Hub/Final
-   python3 test_button_camera.py
-   ```
-   - Press the Qwiic button to save a 720p photo in [`pillbox_images/`](./pillbox_images).
-   - If `vision.enabled` is true, a JSON analysis is saved alongside the JPEG.
-
-6. **RGB LED diagnostics (GPIO 21/20/26 → physical 40/38/37)**  
-   ```bash
-   cd /home/pi/Interactive-Lab-Hub/Final
-   python3 test_rgb_light.py                 # common-cathode, solid green
-   python3 test_rgb_light.py --common-anode  # for common-anode LEDs
-   python3 test_tgb.py                       # amber blink
-   python3 test_rgbtest.py                   # tune RGB ratios / blink patterns
-   ```
-
-### 3. Documentation of Design Process
-| Phase | Description | Output |
-| --- | --- | --- |
-| Functional tests | Started with isolated hardware/AI tests (button, camera, touch, LED). | [`tests/test_button_camera.py`](./tests/test_button_camera.py), [`tests/test_open_outside_window.py`](./tests/test_open_outside_window.py), [`tests/test_green_idle_led.py`](./tests/test_green_idle_led.py) |
-| Minimal integration | Chained sensors + LED + voice for the simplest “open lid → capture” loop. | Early internal scripts, camera warm-up notes (Lab 5 style). |
-| Full smart pillbox | Added scheduling, over-dose guard, servo hooks, and Ollama parsing. | [`smart_pillbox.py`](./smart_pillbox.py) (final full-feature version). Demo video recorded from this build. |
-| Exhibition demo | Simplified for workshop constraints: constant green blink, auto speech summaries, no manual inputs required. | [`smart_pillbox_demo.py`](./smart_pillbox_demo.py), LED state tweaks, RGB-only pill counting. |
-
-Additional references: [IMPLEMENTATION_OUTLINE.md](./IMPLEMENTATION_OUTLINE.md) (step-by-step build guide) and [Final_Proposal.md](./Final_Proposal.md) (updated plan after each checkpoint).
-
-### 4. Code & Asset Archive (amnesia-proof)
-- **Runtime**: [`smart_pillbox.py`](./smart_pillbox.py), [`smart_pillbox_demo.py`](./smart_pillbox_demo.py)
-- **Configuration**: [`pillbox_config.json`](./pillbox_config.json)
-- **Captured data**: [`pillbox_images/`](./pillbox_images) (JPG + AI JSON + raw responses)
-- **Hardware tests**: [`tests/`](./tests) directory (button, touch window, LED)
-- **Documentation**: [Final_Proposal.md](./Final_Proposal.md), [IMPLEMENTATION_OUTLINE.md](./IMPLEMENTATION_OUTLINE.md), this README
-- **Dependencies**: [`requirements.txt`](./requirements.txt)
-
-Together these files allow a clean-room rebuild of the project if needed.
+**[Watch the Iteration A Demo Video (Google Drive)](https://drive.google.com/file/d/1AzOt4D0UNu8dvzEidtejADHtNCmdWF-R/view?usp=drive_link)**
 
 ---
 
-## Technical Notes
+## Final Deliverables
 
-### Architecture
-- **Hardware**: MPR121 capacitive touch, SparkFun Qwiic button, RGB LED (BCM 21/20/26), PCA9685 servo (optional), USB/Pi camera, speaker.
-- **Software stack**: Python 3, `gpiozero`, `opencv-python`, `requests`, `pyttsx3`, local Ollama server.
-- **LED states**: idle = green blink, processing = amber blink, success = solid green, failure = red fast blink.
+### 1) Project plan: Big idea, timeline, parts needed, fall-back plan
 
-### Interaction Flow
-1. Dose window opens → amber LED + reminder voice prompt.
-2. Lid opens (touch sensor) → green blink + voice instructions.
-3. User presses Qwiic button → camera capture + AI analysis.
-4. If colors/counts match prescription → solid green, unlock, “dose complete” prompt.
-5. If mismatch/out-of-window → red LED and warning voice prompt.
+The project plan is documented in `Final_Proposal.md`. The following content is copied from that document, with a short “current implementation” note at the end when the plan differs from what we shipped.
 
-### Troubleshooting
-1. **Ollama connection failure** – ensure `ollama serve` is running locally.
-2. **Camera unavailable** – confirm USB permissions and that `cv2.VideoCapture` can open the selected index.
-3. **Dark captures** – increase `warmup_seconds`/`warmup_frames` or improve ambient lighting.
-4. **MPR121 unresponsive** – check I²C wiring/address (`0x5A` default) and run `i2cdetect -y 1`.
-5. **Servo not moving** – verify PCA9685 power, channel mapping, and duty cycle limits.
+#### Big idea (from `Final_Proposal.md`)
+
+In this project we design a smart medication box that tries to prevent real-world pill mistake, especially for people who take many drugs every day.
+
+The core idea is: the user can only take the pills **after** our system verifies the **whole current dose** (all pills for this time) using computer vision.
+
+At each scheduled dose time:
+
+- The device uses speaker to tell the user what they should take now, for example:  
+  “It is 8:00 AM. Please take 1 tablet of Drug A and 2 tablets of Drug B.”
+- User puts all pills for this dose on a white **Verification Pad**.
+- A 720p camera takes a photo; AI vision detects each pill type and count.
+- If the detected recipe exactly matches the prescription for this time, servo unlocks and user can access pills.
+- Otherwise the box stays locked, LED and speaker give warning, and we log the wrong attempt.
+
+Besides pill verification, the system also has basic time control and logging: it knows when you should take medicine, reminds you, records if you miss the window, and warns if you keep opening the lid without actually taking a verified dose.
+
+#### Timeline (from `Final_Proposal.md`)
+
+- **Week 1: Hardware and Box** – assemble Pi, camera, servo, LED, speaker, MPR121, verification pad; test physical fit.
+- **Week 2: Sensors, Servo and Camera Integration** – read sensors, control lock states, capture 720p images.
+- **Week 3: AI Vision and Dose Logic** – integrate vision and implement recipe comparison (YES/NO decision).
+- **Week 4: Time Logic and UX** – add schedule/time windows, LED rules, voice prompts, event logging.
+- **Week 5: Testing, Video and Documentation** – execute testing plan, record demo, finalize documentation.
+
+#### Parts needed (plan vs shipped)
+
+- **Planned in proposal**: verification pad, optional servo lock, OLED/LCD, etc. (see `Final_Proposal.md`)
+- **Shipped / implemented in this repo**:
+  - Raspberry Pi + camera (720p capture)
+  - MPR121 touch sensor (lid state)
+  - SparkFun Qwiic Button (explicit “capture now” trigger)
+  - RGB LED (status feedback)
+  - Speaker + `espeak` (voice prompts)
+  - Ollama + `moondream:latest` (structured pill color counting)
+
+#### Fall-back plan (aligned with this repo)
+
+If the AI vision part is not reliable enough (e.g., lighting / confusing pills / runtime instability), we fall back to a simpler guided mode:
+
+- Keep time-window reminders and safety warnings
+- Keep capture + logging for later review
+- For workshop conditions, use `smart_pillbox_demo_mock_ai.py` as a fallback: real photos are captured, but counts are manually entered so the interaction can still be demonstrated reliably
 
 ---
 
-Course project – provided for instructional use. For questions, open an issue or refer to the contact info in [Final_Proposal.md](./Final_Proposal.md).
+### 2) Functioning project: an interactive device/system
 
+#### What the system is (overview)
 
+Pill Checker is an integrated smart pillbox prototype that combines:
 
+- **Touch sensing (MPR121)** to detect lid state (open/closed)
+- **A physical trigger button (SparkFun Qwiic Button)** to confirm “take a photo now”
+- **Camera capture (OpenCV)** at 1280×720
+- **Local vision analysis (Ollama + `moondream:latest`)** that returns structured JSON pill color counts
+- **Multimodal feedback** via **RGB LED** patterns and **voice prompts** (`espeak` preferred)
 
+We intentionally maintain **two versions**:
+
+- **Iteration A (full user flow)**: `smart_pillbox.py`  
+  Lid state + button trigger + camera capture + Ollama JSON parsing + prescription comparison + LED/voice feedback.
+- **Iteration B (stable workshop demo)**: `smart_pillbox_demo.py` (**already presented in the workshop**)  
+  Workshop-friendly flow that focuses on “colors + counts + daily totals” for immediate comprehension.
+
+`smart_pillbox_demo_mock_ai.py` is **not the primary demo**; it is a **fallback** when the environment is not favorable for Ollama (network/model latency, lighting, etc.). It still captures real images but asks the operator to type counts manually.
+
+#### Hardware (as implemented)
+
+- **Raspberry Pi (Pi 4/5 recommended)**
+- **Camera** (USB webcam or Pi Camera), top-down view
+- **SparkFun Qwiic Button** (I2C)
+- **MPR121 capacitive touch sensor** (I2C)
+- **RGB LED** (GPIO **21/20/26**, PWM via `gpiozero`)
+- **Speaker** (for voice prompts via `espeak`)
+
+##### Wiring notes (text-only)
+
+- **I2C bus**: SDA/SCL + 3V3 + GND shared by Qwiic Button and MPR121  
+- **RGB LED pins (BCM)**:
+  - **Red** → GPIO 21
+  - **Green** → GPIO 20
+  - **Blue** → GPIO 26
+
+#### Software requirements
+
+- Python 3
+- `espeak` (recommended)
+- Ollama + `moondream:latest` (required for Iteration B demo and AI counting)
+
+#### Quick Start
+
+##### 1) Setup Python env
+
+```bash
+cd ~/Interactive-Lab-Hub/Final
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+##### 2) Install system dependencies (voice + I2C tooling)
+
+```bash
+sudo apt-get update
+sudo apt-get install -y espeak i2c-tools
+```
+
+##### 3) Start Ollama (for AI vision)
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+ollama pull moondream:latest
+ollama serve
+```
+
+##### 4) Configure camera / endpoint (optional)
+
+Edit `pillbox_config.json`:
+
+- `camera.index`, `camera.width/height`, warm-up parameters
+- `vision.endpoint` (default: `http://localhost:11434/api/generate`)
+- `vision.timeout` (seconds)
+
+##### 5) Run
+
+- **Iteration A (full user flow)**:
+
+```bash
+python3 smart_pillbox.py
+```
+
+- **How to interact (Iteration A)**
+  - Step 1: enter prescription targets (color + count) in the terminal
+  - Step 2: open the lid (touch sensor changes state)
+  - Step 3: press the Qwiic button to capture an image
+  - Step 4: Ollama returns JSON pill color counts
+  - Step 5: the system compares detected counts vs prescription:
+    - match → voice confirms + green success
+    - mismatch → warning + red alert/failure
+
+- **Time window rule (Iteration A)**: the default allowed window in `smart_pillbox.py` is **08:00–12:00**. Opening outside the window triggers warnings.
+
+- **Iteration B (stable workshop demo)**:
+
+```bash
+python3 smart_pillbox_demo.py
+```
+
+- **How it behaves (Iteration B)**:
+  - “This time you took X red / Y blue / Z green”
+  - “Today in total you have taken …”
+  - Status: already presented in the workshop
+
+---
+
+### 3) Documentation of design process
+
+We documented our process as a progression from isolated bring-up tests → integrated user flow → workshop-focused iteration.
+
+#### Storyboard
+
+<img src="img/Storyboard.jpg" width="700" />
+
+#### Enclosure / Appearance Design
+
+This section documents the **industrial design** decisions and the physical enclosure layout.
+
+- **Back view (charger / power design, fully enclosed)**: the charging solution is integrated so that no charger is exposed outside.
+
+<img src="img/back_charger.jpg" width="600" />
+
+- **Inside view (with pill placement area)**
+
+<img src="img/inside_overview.jpg" width="600" />
+
+- **Inside view (without pill placement area)**
+
+<img src="img/inside_without_pillholder.jpg" width="600" />
+
+#### Pre-flight / bring-up tests (what we built first)
+
+We started by validating each module independently to avoid compounding failures during integration:
+
+- **Bring-up / component tests** (`tests/`): LED patterns, voice prompts, camera framing, I2C connectivity, time-window reminders
+
+##### Bring-up checklist (scripts)
+
+Run these in order to isolate hardware issues early.
+
+- **Test 0 – Check I2C devices**:
+
+```bash
+sudo i2cdetect -y 1
+```
+
+- **Test 1 – LEDAnimator wiring sanity**:
+
+```bash
+python3 tests/test_green_idle_led.py
+```
+
+- **Test 2 – Success feedback (LED + voice)**:
+
+```bash
+python3 tests/led_success_test.py
+```
+
+- **Test 3 – Warning feedback (LED + voice)**:
+
+```bash
+python3 tests/led_warning_test.py
+```
+
+- **Test 4 – Fast framing probe (button → photo only)**:
+
+```bash
+python3 tests/button_capture_probe.py
+```
+
+This probe is useful **before** running the full Ollama pipeline: it helps you quickly confirm the camera framing/placement is correct (pill area in view, focus/lighting OK) without introducing AI/model variables.
+
+- **Test 5 – Simulate opening outside the time window**:
+
+```bash
+python3 tests/test_open_outside_window.py
+```
+
+- **Test 6 – Simulate noon reminder (missed dose)**:
+
+```bash
+python3 tests/test_noon_reminder_voice.py
+```
+
+#### Iteration A → Iteration B (what changed and why)
+
+- **Integration (Iteration A)**: connect lid state + capture trigger + AI counting + validation + feedback into one complete flow.
+- **Workshop iteration (Iteration B)**: simplify the interaction for limited in-class time while keeping the same capture + AI pipeline.
+
+##### Peer review (Iteration A)
+
+- **Dean Xu**: “This is a really impressive end-to-end flow. The button-triggered capture makes the interaction explicit, and the LED + voice feedback is very clear. I’d love to use something like this in real life.”
+- **Classmate (anonymous)**: “The system feels complete as a user flow. The warning case is easy to understand, and the JSON logging makes it feel like a serious prototype rather than a toy demo.”
+
+##### Peer review (Iteration B)
+
+- **Classmate (anonymous)**: “This demo is perfect for workshop pacing. In under 10 seconds I understood what it does because it immediately speaks the color counts.”
+- **Classmate (anonymous)**: “The daily total makes the behavior obvious and memorable. It’s easy to explain without diving into schedule logic.”
+
+---
+
+### 4) Archive (code + assets + patterns to rebuild from scratch)
+
+Everything needed to recreate the project is included in this folder:
+
+- **Code**: `smart_pillbox.py`, `smart_pillbox_demo.py`, `smart_pillbox_demo_mock_ai.py`
+- **Config**: `pillbox_config.json`
+- **Dependencies**: `requirements.txt`
+- **Bring-up tests**: `tests/`
+- **Captured dataset / logs**: `pillbox_images/` (photos + raw Ollama + parsed JSON)
+- **Design materials**: `img/` (storyboard + enclosure photos)
+
+#### Repository Map
+
+- **Core**
+  - `smart_pillbox.py` – core implementation (`ButtonCameraTester`)
+  - `smart_pillbox_demo.py` – workshop demo (stable) built on the same pipeline
+  - `smart_pillbox_demo_mock_ai.py` – fallback demo if Ollama is unreliable
+- **Config / deps**
+  - `pillbox_config.json`
+  - `requirements.txt`
+- **Bring-up tests**
+  - `tests/test_green_idle_led.py` – LEDAnimator wiring sanity check
+  - `tests/led_success_test.py` – success light + voice test
+  - `tests/led_warning_test.py` – warning light + voice test
+  - `tests/button_capture_probe.py` – fastest “button → photo” framing probe
+  - `tests/test_open_outside_window.py` – simulate opening outside the allowed time window
+  - `tests/test_noon_reminder_voice.py` – simulate missed-dose reminder at noon
+- **Captured artifacts**
+  - `pillbox_images/` – `.jpg` + parsed `.json` + raw `.ollama_raw.txt`
+
+#### Captured outputs (`pillbox_images/`)
+
+Each capture may produce:
+
+- `button_capture_*.jpg` – the photo
+- `button_capture_*.ollama_raw.txt` – raw Ollama response (debug)
+- `button_capture_*.json` – parsed structured output used by the system
+
+##### Example captures (real files in this repo)
+
+<p float="left">
+  <img src="pillbox_images/button_capture_20251204_171613.jpg" width="420" />
+  <img src="pillbox_images/button_capture_20251204_151431.jpg" width="420" />
+</p>
+
+##### Example parsed JSON
+
+```json
+{
+  "pills": [
+    { "color": "white", "count": 1 },
+    { "color": "red", "count": 1 }
+  ],
+  "image_path": "/home/pi/Interactive-Lab-Hub/Final/pillbox_images/button_capture_20251204_151431.jpg",
+  "model": "moondream:latest",
+  "timestamp": "2025-12-04T15:06:53"
+}
+```
+
+#### Troubleshooting
+
+- **Ollama request fails**
+  - Make sure `ollama serve` is running
+  - Check `pillbox_config.json` → `vision.endpoint`
+- **Camera cannot open**
+  - Try `camera.index = 0/1`
+  - Run `tests/button_capture_probe.py` to isolate camera issues
+- **Dark or blurry images**
+  - Increase `warmup_seconds` / `warmup_frames` in `pillbox_config.json`
+  - Improve lighting / use a white background pad
+- **Button not detected**
+  - Run `sudo i2cdetect -y 1`
+  - Re-seat Qwiic cable and confirm power/ground
+- **LED colors look wrong**
+  - Confirm wiring matches GPIO 21/20/26
+  - Verify common-anode vs common-cathode LED behavior
+
+---
+
+### 5) Video of someone using the project
+
+- **[Iteration A Demo Video (Google Drive)](https://drive.google.com/file/d/1AzOt4D0UNu8dvzEidtejADHtNCmdWF-R/view?usp=drive_link)**
+
+ 
