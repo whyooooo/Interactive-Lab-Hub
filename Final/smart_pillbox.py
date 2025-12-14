@@ -181,7 +181,7 @@ def _assign_pyttsx3_voice(engine, target_voice: str):
 LED_DEFAULT_PINS = {"red": 21, "green": 20, "blue": 26}
 LED_DEFAULT_ACTIVE_HIGH = True
 DOSE_WINDOW_START = dtime(8, 0)
-DOSE_WINDOW_END = dtime(23, 0)
+DOSE_WINDOW_END = dtime(12, 0)
 DOSE_TARGET_COUNT = 1
 GLOBAL_TOUCH_DETECTOR = None
 
